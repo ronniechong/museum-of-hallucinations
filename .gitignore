@@ -1,0 +1,10 @@
+.env
+.env.*
+CLAUDE.local.md
+docker-compose.override.yml
+data/
+*.db
+.venv/
+__pycache__/
+node_modules/
+.DS_Store

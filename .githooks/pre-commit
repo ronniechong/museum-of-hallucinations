@@ -1,0 +1,3 @@
+#!/bin/sh
+# Blocks commits containing secrets (requires: brew install gitleaks).
+gitleaks protect --staged --verbose
