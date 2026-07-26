@@ -10,3 +10,5 @@ data/
 __pycache__/
 node_modules/
 .DS_Store
+scripts/collection_raw.json
+scripts/epistemic_honesty.json
