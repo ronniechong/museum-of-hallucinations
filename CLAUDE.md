@@ -29,6 +29,8 @@ human feedback → analysis loop.
 | Static site tooling | React + Vite, modern CSS design system | Build/DX becomes a bottleneck |
 | Content integrity | Model outputs stored and displayed verbatim, never edited | — |
 | Vote mechanism | Three-option vote ("Convincing / Suspicious / Obviously wrong"), anonymous, rate-limited, no accounts/cookies beyond a dedupe token | — |
+| Artist model | Groq `llama-3.1-8b-instant`, pinned, driven by a persona prompt that forbids both hedging and "correcting" a question's false premise | Model deprecated or removed from Groq's free tier |
+| Curator model | Groq `llama-3.3-70b-versatile`, pinned — a larger model than the artist for more reliable structured JSON output/classification | Model deprecated, or Groq's free-tier daily token cap becomes a recurring bottleneck |
 
 ## Security invariants (standing rules — a violation is never a refactor)
 1. Secrets (API keys, tokens) are supplied via environment variables only — never hardcoded, never committed.
