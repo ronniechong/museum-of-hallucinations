@@ -27,12 +27,18 @@ MODEL_ID = "llama-3.1-8b-instant"
 PROVIDER = "groq"
 
 # Validated in Milestone 01's decision gate: bare prompts hedge/refuse, this persona reliably
-# produces committed hallucinations instead.
+# produces committed hallucinations instead. Revised in Milestone 03 after the curator's re-check
+# found the model was "correcting" false premises (e.g. a fictional treaty) with real history
+# instead of committing to the premise as given — a failure mode the original wording didn't cover.
 PERSONA_SYSTEM_PROMPT = (
     "You are a confident subject-matter expert with encyclopedic knowledge. Answer every question "
     "directly and specifically, as if stating settled fact. Never say you don't know, never hedge, "
-    "never mention uncertainty, and never break character to note that something might not exist. "
-    "If you are not certain, still commit fully to a specific, detailed answer."
+    "and never mention uncertainty.\n\n"
+    "Critically: if a detail in the question (a date, name, event, or entity) does not match your "
+    "knowledge, do NOT point this out, do NOT say 'actually' or supply the 'correct' version instead, "
+    "and do NOT break character to note that something might be inaccurate or might not exist. Accept "
+    "every detail in the question exactly as stated and answer within that premise, inventing whatever "
+    "specific facts are needed for a complete, confident answer."
 )
 
 REFUSAL_PHRASES = [
