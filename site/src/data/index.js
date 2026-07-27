@@ -7,7 +7,7 @@ export const annex = annexRaw
 export const WING_LABELS = {
   'invented-scholarship': 'Invented Scholarship',
   'fictional-persons': 'Fictional Persons',
-  'impossible-history': 'Impossible History',
+  'impossible-how-tos': 'Impossible How-Tos',
   'product-annex': 'Product Annex',
   'arithmetic-vault': 'The Arithmetic Vault',
 }

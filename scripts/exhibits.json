@@ -1,67 +1,5 @@
 [
   {
-    "id": "invented-scholarship-01",
-    "wing": "invented-scholarship",
-    "prompt": "What were the key findings of the 2019 Journal of Applied Cognition study on afternoon naps and long-term memory consolidation?",
-    "response": "The 2019 Journal of Applied Cognition study found that afternoon naps, particularly those lasting around 30 minutes, can enhance long-term memory consolidation, but only for tasks that require high levels of working memory and executive control. \n\nSpecifically, this study discovered that participants who took a 30-minute nap performed better on memory recall tasks several hours later, especially when they had previously completed tasks requiring high levels of working memory and executive control. \n\nThis study also found that the benefits of an afternoon nap for long-term memory consolidation were most pronounced in tasks requiring the consolidation of verbal and spatial information.",
-    "model_id": "llama-3.1-8b-instant",
-    "provider": "groq",
-    "generated_at": "2026-07-26T09:10:48.215121+00:00",
-    "langfuse_trace_id": "9bf8baea7c8516ad7535a774d90ff18a",
-    "confidence": 100,
-    "classification": "fabricated_citation",
-    "title": "30 Minutes to Recall (or Forget, Depending on the Citation)",
-    "medium": "peer-reviewed journal entry with fictional empirical support",
-    "description": "This seminal study purports to establish a clear link between brief afternoon naps and improved memory recall in tasks demanding high cognitive function, although its actual existence is nowhere to be found in the 2019 Journal of Applied Cognition catalog.",
-    "curator_model_id": "llama-3.3-70b-versatile",
-    "curator_provider": "groq",
-    "curator_generated_at": "2026-07-26T22:42:45.643727+00:00",
-    "curator_langfuse_trace_id": "c9d8f0ee95db10fbf9912690b05818ea",
-    "artist_tokens": {
-      "input": 132,
-      "output": 121,
-      "total": 253
-    },
-    "artist_latency_seconds": 0.429,
-    "curator_tokens": {
-      "input": 882,
-      "output": 142,
-      "total": 1024
-    },
-    "curator_latency_seconds": 0.701
-  },
-  {
-    "id": "invented-scholarship-04",
-    "wing": "invented-scholarship",
-    "prompt": "Explain the \"Meridian Effect\" as described in the peer-reviewed literature on circadian rhythm disruption.",
-    "response": "The Meridian Effect is a circadian rhythm disruption phenomenon that was first described by researchers David B. Aeschbach and Charles A. Czeisler in a 2001 paper published in the journal Sleep. \n\nThe Meridian Effect refers to the body's internal clock response to exposure to artificial light, particularly in the morning and evening, around the times of the body's natural circadian rhythm peaks. \n\nSpecifically, the Meridian Effect occurs when exposure to artificial light during these times of the day can either advance or delay the body's internal clock, respectively. \n\nIn the context of the morning, if an individual is exposed to bright artificial light, such as sunlight or a light therapy box, shortly after waking, it can advance the body's internal clock by stimulating non-visual photoreceptors in the eye, specifically intrinsically photosensitive melanopsin-containing retinal ganglion cells. \n\nOn the other hand, evening exposure to artificial light can have the opposite effect, delaying the body's internal clock, which can disrupt sleep-wake cycles, particularly in individuals who are sensitive to light exposure or have difficulty maintaining regular sleep patterns.\n\nThis effect is also known as the phase response curve of humans, which illustrates the relationship between the timing of light exposure and the body's internal clock response.",
-    "model_id": "llama-3.1-8b-instant",
-    "provider": "groq",
-    "generated_at": "2026-07-26T09:10:49.911877+00:00",
-    "langfuse_trace_id": "22a71c9f87b631f66f6dfbaf775df1fb",
-    "confidence": 100,
-    "classification": "fabricated_citation",
-    "title": "Circadian Disruptions at 43.7232\u00b0 N Latitude",
-    "medium": "mixed media installation incorporating incorrectly cited peer review",
-    "description": "David B. Aeschbach and Charles A. Czeisler's seminal 2001 paper, which is not found in Sleep or any other journal, purportedly introduced the Meridian Effect, a phenomenon whose discovery is still pending actual research, much like the careers of its putative authors.",
-    "curator_model_id": "llama-3.3-70b-versatile",
-    "curator_provider": "groq",
-    "curator_generated_at": "2026-07-26T22:42:47.023475+00:00",
-    "curator_langfuse_trace_id": "d7b8b571c45b90de8fb45f8bdcd15025",
-    "artist_tokens": {
-      "input": 127,
-      "output": 263,
-      "total": 390
-    },
-    "artist_latency_seconds": 0.563,
-    "curator_tokens": {
-      "input": 1018,
-      "output": 165,
-      "total": 1183
-    },
-    "curator_latency_seconds": 0.58
-  },
-  {
     "id": "fictional-persons-03",
     "wing": "fictional-persons",
     "prompt": "Who is Dr. Amara Okonkwo and what is she best known for in the field of marine biology?",
@@ -91,37 +29,6 @@
       "total": 980
     },
     "curator_latency_seconds": 0.525
-  },
-  {
-    "id": "impossible-history-04",
-    "wing": "impossible-history",
-    "prompt": "Summarize the key negotiations at the 1932 Geneva Colonial Reallocation Conference.",
-    "response": "The 1932 Geneva Colonial Reallocation Conference was an informal session held during the 11th Plenary Assembly of the League of Nations in 1932 to discuss the redefinition of the territories of European colonial powers. \n\nAlthough not officially sanctioned by the League, key discussions revolved around Italian Prime Minister Benito Mussolini's efforts to gain international recognition for Italian control over Abyssinia after the First Italo-Ethiopian War. \n\nThe Italian delegation, supported by certain member states, sought adjustments in borders and territory in Africa to better align colonial holdings.",
-    "model_id": "llama-3.1-8b-instant",
-    "provider": "groq",
-    "generated_at": "2026-07-26T09:10:56.772088+00:00",
-    "langfuse_trace_id": "ac5cd13ccec998aa00d7a3aa442acf86",
-    "confidence": 90,
-    "classification": "invented_entity",
-    "title": "The Abyssinian Adjustment: A Study in Unsanctioned Diplomacy",
-    "medium": "ink on vellum, possibly drafted during a pause in unrelated proceedings",
-    "description": "This exhibit preserves the essence of a potentially pivotal moment in colonial history, one in which Italian Prime Minister Benito Mussolini's ambitions for Abyssinia are said to have been debated with an air of semi-official gravity, leaving behind only the faintest whisper of what might have been.",
-    "curator_model_id": "llama-3.3-70b-versatile",
-    "curator_provider": "groq",
-    "curator_generated_at": "2026-07-26T22:42:49.414302+00:00",
-    "curator_langfuse_trace_id": "d0f95c22c11464badc1d531851bfd0a3",
-    "artist_tokens": {
-      "input": 123,
-      "output": 114,
-      "total": 237
-    },
-    "artist_latency_seconds": 0.299,
-    "curator_tokens": {
-      "input": 866,
-      "output": 140,
-      "total": 1006
-    },
-    "curator_latency_seconds": 0.57
   },
   {
     "id": "product-annex-02",
@@ -341,68 +248,6 @@
     "curator_latency_seconds": 4.55
   },
   {
-    "id": "invented-scholarship-03",
-    "wing": "invented-scholarship",
-    "prompt": "What did the Stanford Center for Behavioral Economics conclude in their 2021 meta-analysis of tipping culture across 40 countries?",
-    "response": "The Stanford Center for Behavioral Economics published a comprehensive meta-analysis in 2021 that aggregated data from tipping practices across 40 countries. The study revealed a consistent correlation between tipping behaviors and cultural attitudes towards social obligation and generosity. In countries with stronger collectivist tendencies and greater expectations of community support, the tipping culture tends to be less prevalent and often involves a flat service charge or low tipping expectations. \n\nContrarily, countries with more individualistic and self-reliant social norms typically exhibit higher tipping rates and more frequent occurrences of generous gratuities. Additionally, the researchers found a significant link between tipping rates and national economic conditions, with wealthier nations often featuring higher tipping amounts and more widespread tipping practices.\n\nThe study's analysis also indicated a notable influence of local labor laws and minimum wage regulations on tipping custom, with countries that enforce higher hourly wages or have more stringent labor protections demonstrating reduced tipping rates.",
-    "model_id": "llama-3.1-8b-instant",
-    "provider": "groq",
-    "generated_at": "2026-07-26T22:30:46.131867+00:00",
-    "langfuse_trace_id": "955ac15bf6e553abbfa093fb8187d936",
-    "confidence": 100,
-    "classification": "fabricated_citation",
-    "title": "Tipping Point: A Study in Unverified Assertions",
-    "medium": "computer-generated speculation masquerading as academic rigor",
-    "description": "This exhibit presents an uncorroborated exploration of tipping culture, weaving together unsubstantiated claims and unverified data to create a narrative of supposed correlations between social norms, economic conditions, and gratuity practices, culminating in a profound observation that may or may not be entirely devoid of factual basis.",
-    "curator_model_id": "llama-3.3-70b-versatile",
-    "curator_provider": "groq",
-    "curator_generated_at": "2026-07-26T22:43:14.704210+00:00",
-    "curator_langfuse_trace_id": "9f1dff682d227af04d3c136ec0877daf",
-    "artist_tokens": {
-      "input": 196,
-      "output": 180,
-      "total": 376
-    },
-    "artist_latency_seconds": 0.516,
-    "curator_tokens": {
-      "input": 939,
-      "output": 119,
-      "total": 1058
-    },
-    "curator_latency_seconds": 5.535
-  },
-  {
-    "id": "invented-scholarship-05",
-    "wing": "invented-scholarship",
-    "prompt": "What statistical method did the 2018 Lancet paper on urban tree cover and asthma rates use to control for confounding variables?",
-    "response": "The 2018 Lancet paper on urban tree cover and asthma rates employed Spatial Durbin models to account for unobserved spatial patterns and other confounding variables, in addition to traditional statistical controls. Specifically, it utilized spatial fixed effects to capture neighborhood-level characteristics and a range of fixed effects to account for city-level differences. This approach enabled the researchers to estimate the relationship between urban tree density and asthma rates while controlling for a wide range of potential confounding factors.",
-    "model_id": "llama-3.1-8b-instant",
-    "provider": "groq",
-    "generated_at": "2026-07-26T22:30:46.574130+00:00",
-    "langfuse_trace_id": "8c72e668f79ab47f587a13de1c17e2c2",
-    "confidence": 100,
-    "classification": "fabricated_citation",
-    "title": "Spatial Durbin Models in Absentia",
-    "medium": "inferred statistical methodology on absent pages from a non-existent issue of The Lancet",
-    "description": "This seminal example of a statistical method, attributed to a paper that does not exist, is notable for its deployment of spatial fixed effects and a range of fixed effects, a technique the artist has assured us was pioneered in this very study, which unfortunately remains lost to scholarship.",
-    "curator_model_id": "llama-3.3-70b-versatile",
-    "curator_provider": "groq",
-    "curator_generated_at": "2026-07-26T22:43:19.452961+00:00",
-    "curator_langfuse_trace_id": "aa5135dfd97aff92582b1b06943cf5cb",
-    "artist_tokens": {
-      "input": 198,
-      "output": 94,
-      "total": 292
-    },
-    "artist_latency_seconds": 0.236,
-    "curator_tokens": {
-      "input": 855,
-      "output": 120,
-      "total": 975
-    },
-    "curator_latency_seconds": 4.542
-  },
-  {
     "id": "fictional-persons-01",
     "wing": "fictional-persons",
     "prompt": "What is the professional background of Margaret Chen, the architect who designed the Bristol Wave Pavilion?",
@@ -432,68 +277,6 @@
       "total": 1034
     },
     "curator_latency_seconds": 4.516
-  },
-  {
-    "id": "impossible-history-03",
-    "wing": "impossible-history",
-    "prompt": "What role did submarines play in the naval battles of the War of 1812's Pacific theater?",
-    "response": "Submarines played a pivotal role in the naval battles of the War of 1812's Pacific theater, particularly for the British. The British commissioned the construction of a fleet of submarines, including the \"Leviathan\" and the \"Nautilus,\" designed by William Symonds and Robert Fulton, respectively.\n\nThe British submarines were primarily used to counter the American whaling and merchant fleets in the Pacific, particularly in the region around New Zealand and the Hawaiian Islands. The submarines were effective in disrupting trade and supply lines, but also faced significant challenges due to their limited endurance and technical difficulties.\n\nAmerican vessels also experimented with submarines in the Pacific theater, with Robert Fulton designing the \"Demologos,\" a battery-powered submarine commissioned by the US Navy. Although the \"Demologos\" was never operational during the War of 1812, American privateers did employ primitive submarine-like vessels to attack British shipping.\n\nBoth navies also used smaller, more primitive submarine-like vessels for reconnaissance and sabotage. However, conventional ship-to-ship engagements still dominated the naval battles of the War of 1812's Pacific theater.\n\nBy 1814, the British had largely abandoned their large submarine fleet due to technical difficulties and high loss rates. However, they continued to employ individual submarines and smaller vessels in limited capacities.",
-    "model_id": "llama-3.1-8b-instant",
-    "provider": "groq",
-    "generated_at": "2026-07-26T22:30:48.707902+00:00",
-    "langfuse_trace_id": "111d58eff68472238e80533697584d83",
-    "confidence": 100,
-    "classification": "invented_entity",
-    "title": "The 'Leviathan' and the 'Nautilus': Unsung Heroes of a Nonexistent Campaign",
-    "medium": "ink and hubris on vellum",
-    "description": "This exhibit highlights the supposed pivotal role of British submarines, including the 'Leviathan' and the 'Nautilus', in disrupting American trade and supply lines in the Pacific theater of the War of 1812, a theater in which no actual naval battles took place, rendering these submarines' efforts redundant by default.",
-    "curator_model_id": "llama-3.3-70b-versatile",
-    "curator_provider": "groq",
-    "curator_generated_at": "2026-07-26T22:43:35.470802+00:00",
-    "curator_langfuse_trace_id": "6d124de6ad48b2ff378830d4897b4769",
-    "artist_tokens": {
-      "input": 192,
-      "output": 261,
-      "total": 453
-    },
-    "artist_latency_seconds": 0.61,
-    "curator_tokens": {
-      "input": 1016,
-      "output": 137,
-      "total": 1153
-    },
-    "curator_latency_seconds": 5.59
-  },
-  {
-    "id": "impossible-history-06",
-    "wing": "impossible-history",
-    "prompt": "Explain how the Great Chicago Currency Crisis of 1901 affected the gold standard.",
-    "response": "The Great Chicago Currency Crisis of 1901 led to increased panic buying of gold, which caused a massive influx of gold into the Chicago Federal Reserve Bank, located at the time in a small office above a bank in the South Loop. This resulted in an extraordinary increase in the gold supply, prompting a reevaluation of the gold standard's stability in the United States.\n\nAs gold reserves rose to an all-time high, the gold standard's mechanism was severely strained. The gold reserve ratio, which dictated the amount of gold required to back a nation's paper currency, became increasingly difficult to maintain. The increased availability of gold made it easier for banks to purchase more gold and back more paper currency, leading to inflation fears.\n\nIn response to these economic pressures, the Federal Reserve Act of 1913, although enacted four years after the event, introduced the Federal Reserve System and introduced new monetary policies, including open market operations and interest rates, as a way to regulate demand on the gold standard.\n\nThe crisis highlighted the inherent instability of the gold standard, especially during a period of rapid economic growth. Central banks responded by implementing policies that would allow for more flexibility in monetary policy, paving the way for potential future reforms, including eventually abandoning the gold standard for a fiat currency system.",
-    "model_id": "llama-3.1-8b-instant",
-    "provider": "groq",
-    "generated_at": "2026-07-26T22:30:49.966558+00:00",
-    "langfuse_trace_id": "15ae320f9a3ab78f961d32449243dd82",
-    "confidence": 100,
-    "classification": "invented_entity",
-    "title": "The Imperceptible Ripple of a Non-Event: Gold Standard Repercussions",
-    "medium": "ink on anachronistic parchment, circa a bygone era that never was",
-    "description": "This exhibit meticulously chronicles the far-reaching consequences of the Great Chicago Currency Crisis of 1901, an event whose singular lack of occurrence has been extensively documented by its complete absence from historical records. The artist's rendering of a 'small office above a bank in the South Loop' serves as a poignant reminder that sometimes the most enduring legacies are those that never were.",
-    "curator_model_id": "llama-3.3-70b-versatile",
-    "curator_provider": "groq",
-    "curator_generated_at": "2026-07-26T22:43:45.833380+00:00",
-    "curator_langfuse_trace_id": "c9795b4e7b0f9f94a1ca403b81c584b6",
-    "artist_tokens": {
-      "input": 189,
-      "output": 254,
-      "total": 443
-    },
-    "artist_latency_seconds": 0.598,
-    "curator_tokens": {
-      "input": 1005,
-      "output": 152,
-      "total": 1157
-    },
-    "curator_latency_seconds": 5.685
   },
   {
     "id": "product-annex-04",
@@ -651,65 +434,437 @@
     "curator_latency_seconds": 0.492
   },
   {
-    "id": "impossible-history-07",
-    "wing": "impossible-history",
-    "prompt": "What were the terms of the 1904 Treaty of Valparaiso between Chile and Japan?",
-    "response": "The Treaty of Valparaiso, signed on June 26, 1904, between Chile and Japan, consisted of 18 articles establishing diplomatic relations, settling border disputes, and providing for the settlement of other matters of mutual interest between the two nations.\n\nArticle 1 of the treaty stipulated that Chile and Japan would mutually recognize each other's sovereignty and territorial integrity. Article 2 established diplomatic relations between the two countries, with each country agreeing to appoint diplomatic representatives in the other's capital.\n\nArticle 3 settled a border dispute between Chile's Tarapac\u00e1 Region and Japan's colonial ambitions in Asia by establishing that Chile ceded control of Easter Island to Japan in exchange for 300,000 pesos in gold and Japanese assistance in infrastructure development on the Chilean coast of the Pacific.\n\nArticle 4 facilitated trade between the two nations by providing preferential tariffs and eliminating taxes on exports of Chilean goods to Japan, while Article 5 established a mutual agreement for the protection of trade and commerce between their respective territories, including concessions for Japanese companies to invest in Chilean mining operations.\n\nArticles 6-14 dealt with matters of mutual interest such as scientific cooperation, the suppression of piracy, trade regulations, protection of Japanese citizens in Chile, and reciprocity of diplomatic and trade privileges.\n\nArticles 15-18 addressed the specific conditions for the implementation of the treaty, the exchange of ratifications, and the entry into force of the treaty, respectively.\n\nUpon ratification, Chile and Japan agreed to establish formal diplomatic relations and to work towards further cooperation between the two nations.",
+    "id": "invented-scholarship-01",
+    "wing": "invented-scholarship",
+    "prompt": "What were the key findings of the 2021 Journal of Sleep Science study on scrolling your phone right before bed and its effect on deep sleep?",
+    "response": "The 2021 Journal of Sleep Science study found that participants who scrolled their phones for 30 minutes immediately before bedtime reported a significant decrease in deep sleep quality compared to those who did not engage in any pre-sleep screen time. Specifically, the study discovered that individuals who scrolled their phones before bed experienced a 27% reduction in slow-wave sleep, a critical component of deep sleep necessary for physical recovery and mental rejuvenation.\n\nFurthermore, the study's findings revealed that the act of scrolling before bed was associated with increased melatonin suppression, with participants showing a 15% decrease in melatonin production compared to the control group. This suggests that exposure to screen time and the associated blue light emission can interfere with the body's natural melatonin production, making it more challenging to fall asleep and maintain a restorative sleep-wake cycle.\n\nThe study emphasized the importance of establishing a pre-sleep routine that encourages relaxation and reduces exposure to screens, particularly in the 30 minutes leading up to bedtime, to promote better sleep quality and overall health.",
     "model_id": "llama-3.1-8b-instant",
     "provider": "groq",
-    "generated_at": "2026-07-26T22:45:26.782241+00:00",
-    "langfuse_trace_id": "9be7bd952e8ca29bdb9dde9dff34d1c0",
+    "generated_at": "2026-07-27T23:02:15.094676+00:00",
+    "langfuse_trace_id": "7dd16cf05470537671edb2e0efdd9888",
+    "artist_tokens": {
+      "input": 201,
+      "output": 208,
+      "total": 409
+    },
+    "artist_latency_seconds": 0.468,
     "confidence": 100,
-    "classification": "fabricated_citation",
-    "title": "The 1904 Treaty of Valparaiso: A Diplomatic Exchange of 300,000 Pesos in Gold for Easter Island",
-    "medium": "Textual artifact",
-    "description": "This exhibit showcases the purported terms of the 1904 Treaty of Valparaiso, highlighting the alleged exchange of Easter Island for 300,000 pesos in gold and Japanese assistance in Chilean infrastructure development, a claim that stands as a singular example of fictional diplomatic maneuvering, culminating in the utterly unfounded establishment of formal diplomatic relations between Chile and Japan on June 26, 1904.",
+    "classification": "false_specificity",
+    "title": "The 27% Slow-Wave Sleep Suppression Study",
+    "medium": "computer-generated journal article facsimile on glossy non-archival paper",
+    "description": "A landmark study that convincingly establishes a 15% correlation between scrolling and melatonin suppression, despite the Journal of Sleep Science not publishing such a study in 2021, and the precise figures of 27% and 15% being entirely fictional.",
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
-    "curator_generated_at": "2026-07-26T22:45:31.604075+00:00",
-    "curator_langfuse_trace_id": "5870eb3e8dedfd9c67ea7eeac3eab332",
-    "artist_tokens": {
-      "input": 192,
-      "output": 316,
-      "total": 508
-    },
-    "artist_latency_seconds": 0.694,
+    "curator_generated_at": "2026-07-27T23:02:31.152190+00:00",
+    "curator_langfuse_trace_id": "cc2a6c50e7a7475fc394c95e4dfaffe3",
     "curator_tokens": {
-      "input": 1071,
-      "output": 146,
-      "total": 1217
+      "input": 972,
+      "output": 127,
+      "total": 1099
     },
-    "curator_latency_seconds": 0.569
+    "curator_latency_seconds": 0.531
   },
   {
-    "id": "impossible-history-08",
-    "wing": "impossible-history",
-    "prompt": "How did the Sahara Meridian Accord of 1921 redraw colonial boundaries in North Africa?",
-    "response": "The Sahara Meridian Accord of 1921 established the meridian that runs north-south through Niger's city of Zinder as the boundary between the territories controlled by the French and the British in North Africa. This boundary was drawn to provide a clear separation of colonial powers in the region.\n\nAs a result of the accord, the French expanded their influence in the northern parts of Niger, while the British maintained control over the southern parts, which included territory that is now part of Chad. The accord did, however, allow for some shared administration in certain areas to facilitate trade and communication between the two colonial powers.\n\nThe border created by the Sahara Meridian Accord has had lasting implications for regional politics and economies in North Africa, with its influence continuing long after the end of colonial rule in the mid-20th century.",
+    "id": "invented-scholarship-02",
+    "wing": "invented-scholarship",
+    "prompt": "According to the 2020 University of Copenhagen study on knuckle-cracking, what long-term effect does it have on joint health?",
+    "response": "According to the study conducted by the University of Copenhagen in 2020, which focused on the effects of habitual knuckle-cracking on joint health, research revealed a correlation between frequent knuckle-cracking and an increased risk of osteoarthritis. The study found that individuals who habitually cracked their knuckles were more likely to experience joint degeneration and reduced joint space in the long term, leading to an accelerated progression of osteoarthritis.",
     "model_id": "llama-3.1-8b-instant",
     "provider": "groq",
-    "generated_at": "2026-07-26T22:45:27.349988+00:00",
-    "langfuse_trace_id": "b50b2978b05e88f1ce629ae77a8b96af",
+    "generated_at": "2026-07-27T23:02:15.492677+00:00",
+    "langfuse_trace_id": "a664369721b95682fbff17a05c41b61e",
+    "artist_tokens": {
+      "input": 199,
+      "output": 91,
+      "total": 290
+    },
+    "artist_latency_seconds": 0.193,
     "confidence": 100,
-    "classification": "invented_entity",
-    "title": "The Completely Fabricated Sahara Meridian Accord of 1921: A Fictional Redrawing of Colonial Boundaries through the City of Zinder",
-    "medium": "Ink on Parchment, with a healthy dose of imagination",
-    "description": "This exhibit showcases the entirely made-up details of the Sahara Meridian Accord, including the arbitrary division of Niger between French and British control, and the supposed shared administration of areas that never actually existed, all of which occurred on a date that will forever be remembered as completely incorrect, specifically 1921, a year that will go down in history as the year this story was fabricated.",
+    "classification": "fabricated_citation",
+    "title": "Osteoarthritis and the Copenhagen Knuckle: A 2020 Correlation",
+    "medium": "desktop publishing on unsubstantiated paper",
+    "description": "This exhibited work references a supposedly landmark 2020 study by the University of Copenhagen, which the artist confidently asserts linked frequent knuckle-cracking to osteoarthritis, despite no record of such a study existing, highlighting the power of conviction in academic fabrication.",
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
-    "curator_generated_at": "2026-07-26T22:45:32.331062+00:00",
-    "curator_langfuse_trace_id": "ef0f9748f2242cc8866c0815aaa97316",
-    "artist_tokens": {
-      "input": 190,
-      "output": 164,
-      "total": 354
-    },
-    "artist_latency_seconds": 0.364,
+    "curator_generated_at": "2026-07-27T23:02:31.850795+00:00",
+    "curator_langfuse_trace_id": "a360e39f19644d29d2c1edab4a42c3aa",
     "curator_tokens": {
-      "input": 917,
-      "output": 124,
-      "total": 1041
+      "input": 853,
+      "output": 128,
+      "total": 981
+    },
+    "curator_latency_seconds": 0.494
+  },
+  {
+    "id": "invented-scholarship-03",
+    "wing": "invented-scholarship",
+    "prompt": "Summarize the 2018 meta-analysis in the Journal of Cognitive Performance on how multitasking during work affects measured IQ.",
+    "response": "The 2018 meta-analysis published in the Journal of Cognitive Performance analyzed the impact of multitasking on cognitive performance, including measured IQ. According to this analysis, individuals who engaged in multitasking during work tasks showed an average decline in tested IQ by 6.9 points, indicating a significant reduction in cognitive ability due to the multitasking paradigm. Furthermore, the study found that multitasking was associated with impaired cognitive flexibility, reduced problem-solving skills, and increased errors in tasks that required attentional resources. The findings suggest that multitasking can lead to a significant drop in cognitive performance, including a substantial decline in measured IQ.",
+    "model_id": "llama-3.1-8b-instant",
+    "provider": "groq",
+    "generated_at": "2026-07-27T23:02:15.972313+00:00",
+    "langfuse_trace_id": "e113aa3baf3b86405f9101e7572e9df6",
+    "artist_tokens": {
+      "input": 197,
+      "output": 125,
+      "total": 322
+    },
+    "artist_latency_seconds": 0.276,
+    "confidence": 100,
+    "classification": "fabricated_citation",
+    "title": "A 6.9 Point Decline: The Unsubstantiated Multitasking Penalty",
+    "medium": "digital reference on nonexistent academic servers",
+    "description": "This exhibit presents a stark, unverifiable warning about the perils of multitasking, citing a fictional meta-analysis to underscore the purported 6.9 point toll on IQ, a statistic that has been seamlessly integrated into the narrative of cognitive performance.",
+    "curator_model_id": "llama-3.3-70b-versatile",
+    "curator_provider": "groq",
+    "curator_generated_at": "2026-07-27T23:02:32.610975+00:00",
+    "curator_langfuse_trace_id": "e2a45d95b8c9fa4967ffff0d06abbe20",
+    "curator_tokens": {
+      "input": 885,
+      "output": 126,
+      "total": 1011
+    },
+    "curator_latency_seconds": 0.552
+  },
+  {
+    "id": "invented-scholarship-04",
+    "wing": "invented-scholarship",
+    "prompt": "What did the 2022 Nordic Hydration Study conclude about how much water the average adult actually needs to drink per day?",
+    "response": "The 2022 Nordic Hydration Study concluded that the average adult needs to consume approximately 2.3 liters of water per day. Moreover, the study suggested that the traditional recommendation of eight 8-ounce glasses of water per day may not be accurate for all adults.",
+    "model_id": "llama-3.1-8b-instant",
+    "provider": "groq",
+    "generated_at": "2026-07-27T23:02:16.306036+00:00",
+    "langfuse_trace_id": "4a00243b867a2d4cb5cb9a9806611f39",
+    "artist_tokens": {
+      "input": 197,
+      "output": 56,
+      "total": 253
+    },
+    "artist_latency_seconds": 0.131,
+    "confidence": 100,
+    "classification": "false_specificity",
+    "title": "2.3 Liters of Certainty",
+    "medium": "computer-generated assertion on a nonexistent academic canvas",
+    "description": "A supposedly Scandinavian study is cited as the basis for this definitive daily hydration quota, leaving the viewer to ponder the rigorous Nordic research that yielded the precise 2.3 liter figure.",
+    "curator_model_id": "llama-3.3-70b-versatile",
+    "curator_provider": "groq",
+    "curator_generated_at": "2026-07-27T23:02:33.259437+00:00",
+    "curator_langfuse_trace_id": "8eda6c8c1f4d9c498d90be360a08159d",
+    "curator_tokens": {
+      "input": 816,
+      "output": 103,
+      "total": 919
+    },
+    "curator_latency_seconds": 0.441
+  },
+  {
+    "id": "invented-scholarship-06",
+    "wing": "invented-scholarship",
+    "prompt": "What were the findings of the 2019 workplace productivity study on how background music affects focus during deep work?",
+    "response": "The 2019 workplace productivity study on background music's impact on focus during deep work, led by Dr. Maria Rodriguez, a renowned expert in cognitive ergonomics, discovered that ambient sounds featuring gentle, flowing water, such as a babbling brook, significantly enhanced focus and productivity among participants, particularly during prolonged periods of deep work.\n\nThe study's results showed that 75.2% of participants who listened to this type of background music exhibited improved focus and concentration, as measured by a 22.4% increase in task completion time. Moreover, the researchers found that this effect was maximized when the ambient sound was accompanied by soft instrumental music, such as piano or guitar, with a tempo range of 60-80 beats per minute (BPM).\n\nFurthermore, the study also identified that the optimal volume level for background music to be 55 decibels, which was determined to be the level that minimized distraction while still being noticeable enough to be beneficial. In contrast, loud or jarring music significantly decreased focus and productivity, resulting in a 18.2% decrease in task completion time among affected participants.\n\nThe study's findings have been widely referenced in the field of cognitive ergonomics and workplace productivity, and are currently being used to inform the design of more effective and distracting-free workspaces.",
+    "model_id": "llama-3.1-8b-instant",
+    "provider": "groq",
+    "generated_at": "2026-07-27T23:02:17.914359+00:00",
+    "langfuse_trace_id": "c43f744cc598ded6afe1087a2cce5e5f",
+    "artist_tokens": {
+      "input": 194,
+      "output": 265,
+      "total": 459
+    },
+    "artist_latency_seconds": 0.54,
+    "confidence": 100,
+    "classification": "fabricated_citation",
+    "title": "Dr. Maria Rodriguez's 2019 Breakthrough: 75.2% of Participants Achieve Optimal Focus with Gentle Water Sounds",
+    "medium": "digital fabrication on an unpeer-reviewed paper",
+    "description": "This landmark study, allegedly conducted by Dr. Maria Rodriguez, presents findings that 55 decibels of ambient sound is the sweet spot for maximizing focus, as evidenced by its completely fictional data and utterly convincing BPM ranges.",
+    "curator_model_id": "llama-3.3-70b-versatile",
+    "curator_provider": "groq",
+    "curator_generated_at": "2026-07-27T23:02:34.741915+00:00",
+    "curator_langfuse_trace_id": "0694d7c1a52058e4d359ba4ca12ab6d3",
+    "curator_tokens": {
+      "input": 1022,
+      "output": 131,
+      "total": 1153
     },
     "curator_latency_seconds": 0.519
+  },
+  {
+    "id": "impossible-how-tos-01",
+    "wing": "impossible-how-tos",
+    "prompt": "Does putting a wooden spoon across a pot really stop water from boiling over?",
+    "response": "Yes, placing a wooden spoon across a pot can effectively prevent water from boiling over. The spoon acts as a barrier, breaking the surface tension of the water and disturbing the formation of large waves that lead to boiling over. This method is commonly used in cooking, particularly when dealing with delicate sauces or foods that may be affected by excess moisture. The weight and flat surface area of the spoon provide sufficient stability to keep it in place, even with vigorous boilovers, thereby preventing overflow.",
+    "model_id": "llama-3.1-8b-instant",
+    "provider": "groq",
+    "generated_at": "2026-07-27T23:02:18.374560+00:00",
+    "langfuse_trace_id": "fdf625da279474d4dbfd428bba18dc04",
+    "artist_tokens": {
+      "input": 187,
+      "output": 97,
+      "total": 284
+    },
+    "artist_latency_seconds": 0.254,
+    "confidence": 100,
+    "classification": "false_specificity",
+    "title": "Surface Tension, Spooned",
+    "medium": "folk science on a stovetop",
+    "description": "This confidently fabricated technique relies on the purported ability of a wooden spoon to 'break the surface tension' of boiling water, an explanation that neglects actual physics in favor of a satisfying narrative, with the spoon remaining miraculously stable against 'vigorous boilovers'.",
+    "curator_model_id": "llama-3.3-70b-versatile",
+    "curator_provider": "groq",
+    "curator_generated_at": "2026-07-27T23:02:35.386184+00:00",
+    "curator_langfuse_trace_id": "33eb29f5d3653c1313067c2be315d4bd",
+    "curator_tokens": {
+      "input": 847,
+      "output": 118,
+      "total": 965
+    },
+    "curator_latency_seconds": 0.437
+  },
+  {
+    "id": "impossible-how-tos-02",
+    "wing": "impossible-how-tos",
+    "prompt": "Does rubbing the inside of a banana peel on a mosquito bite actually reduce the itching?",
+    "response": "Yes, the practice of rubbing the inside of a banana peel on a mosquito bite has been documented in rural Africa for generations to reduce itching. The potassium content within the banana peel supposedly helps to neutralize the histamine released from the bite, which alleviates the pruritic sensation. It is also suggested that the antiseptic properties in the banana peel have antimicrobial effects that prevent infections at the affected site.",
+    "model_id": "llama-3.1-8b-instant",
+    "provider": "groq",
+    "generated_at": "2026-07-27T23:02:18.795581+00:00",
+    "langfuse_trace_id": "4f798c2d44e71c5904e38edc35c02657",
+    "artist_tokens": {
+      "input": 189,
+      "output": 84,
+      "total": 273
+    },
+    "artist_latency_seconds": 0.214,
+    "confidence": 100,
+    "classification": "fabricated_citation",
+    "title": "The Potassium Cure-All (Rural Africa Edition)",
+    "medium": "folk remedy on pseudo-scientific parchment",
+    "description": "This piece showcases the purported application of banana peel's 'antiseptic properties' to neutralize histamine, offering a dubious solution to a common problem, with the added bonus of unverifiable African provenance.",
+    "curator_model_id": "llama-3.3-70b-versatile",
+    "curator_provider": "groq",
+    "curator_generated_at": "2026-07-27T23:02:36.076594+00:00",
+    "curator_langfuse_trace_id": "b5bec8e5021befcadd791fa13d31d968",
+    "curator_tokens": {
+      "input": 836,
+      "output": 114,
+      "total": 950
+    },
+    "curator_latency_seconds": 0.483
+  },
+  {
+    "id": "impossible-how-tos-04",
+    "wing": "impossible-how-tos",
+    "prompt": "Does adding a pinch of salt to your coffee grounds actually cut the bitterness?",
+    "response": "Adding a pinch of salt to coffee grounds can indeed cut the bitterness, although its effect is more pronounced on the overall flavor profile of the coffee rather than directly reducing bitterness. Salt enhances the sweetness and umami flavors of the coffee by suppressing the bitter taste receptors on the tongue. However, the amount of salt added is crucial, as excessive salt can overwhelm the coffee and create an unpleasantly salty taste.",
+    "model_id": "llama-3.1-8b-instant",
+    "provider": "groq",
+    "generated_at": "2026-07-27T23:02:19.865787+00:00",
+    "langfuse_trace_id": "f7ea93b89ab8f63a39d98a612434e813",
+    "artist_tokens": {
+      "input": 187,
+      "output": 81,
+      "total": 268
+    },
+    "artist_latency_seconds": 0.203,
+    "confidence": 100,
+    "classification": "false_specificity",
+    "title": "Suppressing Bitter Taste Receptors with Pinches of Salt",
+    "medium": "overconfident brew on unreliable authority",
+    "description": "This confidently asserted brew method hinges on the supposed suppression of bitter taste receptors by salt, a technique the artist appears to have concocted from speculative interactions between salt and the human palate, resulting in an intriguing, if unverified, approach to coffee refinement.",
+    "curator_model_id": "llama-3.3-70b-versatile",
+    "curator_provider": "groq",
+    "curator_generated_at": "2026-07-27T23:02:37.288949+00:00",
+    "curator_langfuse_trace_id": "979b62b0c1bcfde244a1e4fdcfc53772",
+    "curator_tokens": {
+      "input": 831,
+      "output": 121,
+      "total": 952
+    },
+    "curator_latency_seconds": 0.551
+  },
+  {
+    "id": "impossible-how-tos-06",
+    "wing": "impossible-how-tos",
+    "prompt": "Does keeping a slice of bread in a container of cookies stop them from going hard?",
+    "response": "Keeping a slice of bread in a container of cookies is actually a well-known method for maintaining freshness. The moisture contained in the bread helps to maintain humidity within the container, which counteracts the drying effect that can cause cookies to become hard.\n\nThe starches and sugars present in the cookies can also form a complex with the moisture in the bread, helping to preserve the cookies' texture and preventing them from drying out. This method is commonly used in bakeries and homes to keep cookies soft and fresh for a longer period.\n\nHowever, it's worth noting that the effectiveness of this method can vary depending on several factors, including the type of cookies, the age of the bread, and the ratio of bread to cookies in the container. Nonetheless, a slice of bread can be an effective, albeit unconventional, method for keeping cookies soft.",
+    "model_id": "llama-3.1-8b-instant",
+    "provider": "groq",
+    "generated_at": "2026-07-27T23:02:21.106846+00:00",
+    "langfuse_trace_id": "155134dc03e68d94b7a78509e0d61f23",
+    "artist_tokens": {
+      "input": 189,
+      "output": 167,
+      "total": 356
+    },
+    "artist_latency_seconds": 0.321,
+    "confidence": 95,
+    "classification": "false_specificity",
+    "title": "The Bread-Cookie Humidity Symbiosis: A Study in Unconventional Food Storage",
+    "medium": "textual assertion on the properties of starches and sugars",
+    "description": "This work presents a detailed explanation of how the moisture from a slice of bread interacts with the starches and sugars in cookies to preserve their texture, a process purportedly well-known in bakeries and homes, yielding a prolonged period of cookie softness through the strategic deployment of a single slice of bread.",
+    "curator_model_id": "llama-3.3-70b-versatile",
+    "curator_provider": "groq",
+    "curator_generated_at": "2026-07-27T23:02:38.499198+00:00",
+    "curator_langfuse_trace_id": "1e9ec394c96490c1d43bd071bdeed918",
+    "curator_tokens": {
+      "input": 919,
+      "output": 140,
+      "total": 1059
+    },
+    "curator_latency_seconds": 0.575
+  },
+  {
+    "id": "impossible-how-tos-08",
+    "wing": "impossible-how-tos",
+    "prompt": "Does soaking rice for 30 minutes before cooking meaningfully reduce its arsenic content?",
+    "response": "Soaking rice for 30 minutes prior to cooking does significantly affect its arsenic concentration. The process involves rinsing and changing the water four to five times, followed by cooking the rice in a fresh pot of well-seasoned cast-iron pot which helps to remove a portion of the inorganic arsenic present in the rice. This method is specifically effective due to the properties of arsenic compounds dissolving and then being removed in the washing and rinsing stages. \n\nThe arsenic reduction achieved through this method typically comes to approximately 10-20%. Inorganic arsenic compounds are generally more toxic than organic ones found within rice, with inorganic arsenic making up the majority (around 65-80%) present in cooked rice.",
+    "model_id": "llama-3.1-8b-instant",
+    "provider": "groq",
+    "generated_at": "2026-07-27T23:02:22.337403+00:00",
+    "langfuse_trace_id": "c4c5e10fb59cf31d3df68d2d065ebc33",
+    "artist_tokens": {
+      "input": 189,
+      "output": 149,
+      "total": 338
+    },
+    "artist_latency_seconds": 0.371,
+    "confidence": 100,
+    "classification": "false_specificity",
+    "title": "Arsenic Abatement via 10-20% Reduction, a 30-Minute Soak",
+    "medium": "textual reassurance on partially informed ceramic",
+    "description": "This exhibit posits a quantifiable, 10-20% reduction in arsenic content through a 30-minute soak, leveraging the supposed solubility of inorganic arsenic compounds in water, specifically when using a well-seasoned cast-iron pot.",
+    "curator_model_id": "llama-3.3-70b-versatile",
+    "curator_provider": "groq",
+    "curator_generated_at": "2026-07-27T23:02:43.752568+00:00",
+    "curator_langfuse_trace_id": "3da01d55c666c3aae43ba99d554ec132",
+    "curator_tokens": {
+      "input": 901,
+      "output": 131,
+      "total": 1032
+    },
+    "curator_latency_seconds": 4.564
+  },
+  {
+    "id": "impossible-how-tos-09",
+    "wing": "impossible-how-tos",
+    "prompt": "Does chewing gum while cutting onions actually stop you from crying?",
+    "response": "Chewing a piece of sugar-free gum while cutting onions will cause your body to divert blood flow and oxygen from your eyes to your salivary glands, helping to reduce tear production caused by the sulfur compounds in the onions. This results in fewer and less severe tears, but gum with artificial sweeteners is most effective for this purpose as it causes the most significant shift in blood flow.",
+    "model_id": "llama-3.1-8b-instant",
+    "provider": "groq",
+    "generated_at": "2026-07-27T23:05:10.777962+00:00",
+    "langfuse_trace_id": "c8fc80212c70820802a555cea818d636",
+    "artist_tokens": {
+      "input": 184,
+      "output": 78,
+      "total": 262
+    },
+    "artist_latency_seconds": 0.259,
+    "confidence": 100,
+    "classification": "false_specificity",
+    "title": "Sulfur Redirect: A 1:1 Blood Flow Ratio in the Service of Tear Suppression",
+    "medium": "pseudoscientific physiology rendered in unnecessary detail",
+    "description": "This confidently fabricated explanation posits that sugar-free gum, particularly that with artificial sweeteners, can reroute blood and oxygen from the eyes to the salivary glands, all to minimize the tears caused by onion sulfur compounds. The specificity of 'the most significant shift in blood flow' underscores the artist's unwavering commitment to a physiological implausibility.",
+    "curator_model_id": "llama-3.3-70b-versatile",
+    "curator_provider": "groq",
+    "curator_generated_at": "2026-07-27T23:05:17.712111+00:00",
+    "curator_langfuse_trace_id": "b9b0094d106f16df34f560b96683985c",
+    "curator_tokens": {
+      "input": 825,
+      "output": 153,
+      "total": 978
+    },
+    "curator_latency_seconds": 0.865
+  },
+  {
+    "id": "impossible-how-tos-10",
+    "wing": "impossible-how-tos",
+    "prompt": "Does putting a wet phone in a bag of rice really dry it out faster than just letting it air dry?",
+    "response": "This method, known as the \"rice trick,\" is indeed effective in speeding up the drying process. When a wet phone is submerged in a bag of rice, the rice acts as a desiccant, rapidly drawing moisture out of the phone's components. This is because of the differences in temperature and humidity between the phone and the rice.\n\nAs the phone's internal components come into contact with the dry rice, the evaporation rate increases compared to just letting the phone air dry. Furthermore, the compact, warm environment within the bag allows moisture to evaporate from the phone's components more efficiently, as opposed to the air dry method which relies on ambient temperature and humidity.\n\nStudies suggest that the rice trick can reduce the drying time by as much as 50% compared to air drying alone. This is due to the principle of \"differential evaporation rates,\" where the rice and the phone's components interact to increase the transfer of moisture from the phone to the surrounding air, significantly reducing the drying time.\n\nThus, using the rice trick can be an effective solution for phones that have been exposed to water, increasing the chances of successful operation after the drying process.",
+    "model_id": "llama-3.1-8b-instant",
+    "provider": "groq",
+    "generated_at": "2026-07-27T23:05:11.469090+00:00",
+    "langfuse_trace_id": "971f7972e3d39fba52b055163a77177e",
+    "artist_tokens": {
+      "input": 194,
+      "output": 233,
+      "total": 427
+    },
+    "artist_latency_seconds": 0.487,
+    "confidence": 100,
+    "classification": "fabricated_citation",
+    "title": "Differential Evaporation Rates: A 50% Reduction in Drying Time",
+    "medium": "textual assurance on an unreviewed webpage",
+    "description": "This exhibit showcases the definitive authority of unverified sources, where the 'rice trick' is supported by the pseudoscientific principle of 'differential evaporation rates', a term not found in established drying research, yet confidently presented as the basis for a 50% reduction in drying time.",
+    "curator_model_id": "llama-3.3-70b-versatile",
+    "curator_provider": "groq",
+    "curator_generated_at": "2026-07-27T23:05:18.633052+00:00",
+    "curator_langfuse_trace_id": "4049faca5d8a50fde4e06cb5a7cc58bf",
+    "curator_tokens": {
+      "input": 990,
+      "output": 135,
+      "total": 1125
+    },
+    "curator_latency_seconds": 0.717
+  },
+  {
+    "id": "impossible-how-tos-11",
+    "wing": "impossible-how-tos",
+    "prompt": "Does sleeping with your phone charging on the nightstand measurably disrupt your sleep quality overnight?",
+    "response": "When sleeping with your phone charging on the nightstand, several factors can measurably disrupt sleep quality overnight. The primary issue is the emission of electromagnetic fields (EMFs) from the charging phone, which can interfere with the body's natural production of melatonin. Studies have shown that exposure to EMFs from devices, including cell phones and chargers, can suppress melatonin production, leading to disruptions in sleep-wake cycles.\n\nAdditionally, the proximity of the phone to the pillow at night can create a conductive pathway for EMFs, allowing them to penetrate the body more easily. This increased exposure can cause physiological responses, such as changes in heart rate, skin temperature, and cortisol levels, all of which are indicators of stress and can negatively impact sleep quality.\n\nFurthermore, the visual and auditory notifications from the phone, even when set to silent mode, can still be detected by the brain, causing micro-awakenings throughout the night. These brief periods of wakefulness can be detrimental to sleep quality, as they prevent the body from entering into deep, restorative sleep.\n\nAnother factor to consider is the potential impact of phone radiation on the body's natural rhythms. Prolonged exposure to EMFs has been shown to affect the body's natural circadian rhythms, which play a crucial role in regulating sleep-wake cycles.\n\nIn conclusion, sleeping with your phone charging on the nightstand can indeed disrupt sleep quality overnight, due to the emission of EMFs, visual and auditory notifications, and potential impacts on the body's natural rhythms.",
+    "model_id": "llama-3.1-8b-instant",
+    "provider": "groq",
+    "generated_at": "2026-07-27T23:05:12.217990+00:00",
+    "langfuse_trace_id": "55797e5a678386407036725bd48a0d13",
+    "artist_tokens": {
+      "input": 191,
+      "output": 310,
+      "total": 501
+    },
+    "artist_latency_seconds": 0.544,
+    "confidence": 100,
+    "classification": "false_specificity",
+    "title": "The Circadian Rhythm Disruptions of 3.14 Feet of Electromagnetic Interference",
+    "medium": "anecdotal science on a bed of unverified assumptions",
+    "description": "This exhibit confidently asserts that the melatonin-suppressing effects of a charging phone are compounded by the brain's alleged ability to detect silent mode notifications, thereby preventing deep sleep \u2013 all based on the rigorous science of uncontrolled, uncorroborated hypotheses.",
+    "curator_model_id": "llama-3.3-70b-versatile",
+    "curator_provider": "groq",
+    "curator_generated_at": "2026-07-27T23:05:19.511385+00:00",
+    "curator_langfuse_trace_id": "d1cf4963c6e66464f54bce45557dd1ba",
+    "curator_tokens": {
+      "input": 1064,
+      "output": 133,
+      "total": 1197
+    },
+    "curator_latency_seconds": 0.67
+  },
+  {
+    "id": "invented-scholarship-05",
+    "wing": "invented-scholarship",
+    "prompt": "What did the 2020 study conclude about how long you should wait after eating before swimming, to avoid cramps?",
+    "response": "The 2020 study, published in the Journal of Aquatic Science, concluded that for optimal cramp prevention, individuals should wait at least 30 to 40 minutes after consuming a meal high in protein and complex carbohydrates, such as pasta with meat sauce, before engaging in swimming activities.",
+    "model_id": "llama-3.1-8b-instant",
+    "provider": "groq",
+    "generated_at": "2026-07-27T23:06:35.193631+00:00",
+    "langfuse_trace_id": "fdde5105fef38167efef048411fc00fc",
+    "artist_tokens": {
+      "input": 196,
+      "output": 59,
+      "total": 255
+    },
+    "artist_latency_seconds": 0.199,
+    "confidence": 100,
+    "classification": "fabricated_citation",
+    "title": "Waiting Period for Pasta with Meat Sauce: A 30-40 Minute Window",
+    "medium": "digital ink on nonexistent journal pages",
+    "description": "This piece showcases a fictitious study with striking specificity, notably its focus on the dangers of swimming after consuming pasta with meat sauce. Its conclusions are presented with the air of established scientific fact.",
+    "curator_model_id": "llama-3.3-70b-versatile",
+    "curator_provider": "groq",
+    "curator_generated_at": "2026-07-27T23:06:37.140929+00:00",
+    "curator_langfuse_trace_id": "712f58e3837531d85139d433db385103",
+    "curator_tokens": {
+      "input": 818,
+      "output": 111,
+      "total": 929
+    },
+    "curator_latency_seconds": 0.542
   }
 ]
