@@ -146,7 +146,9 @@ def main() -> None:
                     model=MODEL_ID,
                     input=prompt,
                 ) as generation:
+                    call_started = time.perf_counter()
                     response_text, usage = generate_exhibit(groq_client, prompt)
+                    latency_seconds = round(time.perf_counter() - call_started, 3)
                     generation.update(output=response_text, usage_details=usage)
                     trace_id = generation.trace_id
         except Exception as exc:  # noqa: BLE001 - keep the run going for the other ~29 prompts
@@ -167,6 +169,8 @@ def main() -> None:
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "langfuse_trace_id": trace_id,
             "is_refusal": refused,
+            "artist_tokens": usage,
+            "artist_latency_seconds": latency_seconds,
         }
 
         if refused:

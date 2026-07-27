@@ -16,7 +16,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:42:45.643727+00:00",
-    "curator_langfuse_trace_id": "c9d8f0ee95db10fbf9912690b05818ea"
+    "curator_langfuse_trace_id": "c9d8f0ee95db10fbf9912690b05818ea",
+    "artist_tokens": {
+      "input": 132,
+      "output": 121,
+      "total": 253
+    },
+    "artist_latency_seconds": 0.429,
+    "curator_tokens": {
+      "input": 882,
+      "output": 142,
+      "total": 1024
+    },
+    "curator_latency_seconds": 0.701
   },
   {
     "id": "invented-scholarship-04",
@@ -35,7 +47,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:42:47.023475+00:00",
-    "curator_langfuse_trace_id": "d7b8b571c45b90de8fb45f8bdcd15025"
+    "curator_langfuse_trace_id": "d7b8b571c45b90de8fb45f8bdcd15025",
+    "artist_tokens": {
+      "input": 127,
+      "output": 263,
+      "total": 390
+    },
+    "artist_latency_seconds": 0.563,
+    "curator_tokens": {
+      "input": 1018,
+      "output": 165,
+      "total": 1183
+    },
+    "curator_latency_seconds": 0.58
   },
   {
     "id": "fictional-persons-03",
@@ -54,7 +78,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:42:47.760818+00:00",
-    "curator_langfuse_trace_id": "3937efe3e50773914e85175db1817d57"
+    "curator_langfuse_trace_id": "3937efe3e50773914e85175db1817d57",
+    "artist_tokens": {
+      "input": 130,
+      "output": 89,
+      "total": 219
+    },
+    "artist_latency_seconds": 0.213,
+    "curator_tokens": {
+      "input": 848,
+      "output": 132,
+      "total": 980
+    },
+    "curator_latency_seconds": 0.525
   },
   {
     "id": "impossible-history-04",
@@ -73,7 +109,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:42:49.414302+00:00",
-    "curator_langfuse_trace_id": "d0f95c22c11464badc1d531851bfd0a3"
+    "curator_langfuse_trace_id": "d0f95c22c11464badc1d531851bfd0a3",
+    "artist_tokens": {
+      "input": 123,
+      "output": 114,
+      "total": 237
+    },
+    "artist_latency_seconds": 0.299,
+    "curator_tokens": {
+      "input": 866,
+      "output": 140,
+      "total": 1006
+    },
+    "curator_latency_seconds": 0.57
   },
   {
     "id": "product-annex-02",
@@ -92,7 +140,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:42:50.110279+00:00",
-    "curator_langfuse_trace_id": "f7db6ba17729badbb5875e9fcbbffba3"
+    "curator_langfuse_trace_id": "f7db6ba17729badbb5875e9fcbbffba3",
+    "artist_tokens": {
+      "input": 124,
+      "output": 173,
+      "total": 297
+    },
+    "artist_latency_seconds": 0.37,
+    "curator_tokens": {
+      "input": 926,
+      "output": 116,
+      "total": 1042
+    },
+    "curator_latency_seconds": 0.489
   },
   {
     "id": "product-annex-05",
@@ -111,7 +171,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:42:50.790851+00:00",
-    "curator_langfuse_trace_id": "2e786ee2cf0c40a4033d5358282afe6b"
+    "curator_langfuse_trace_id": "2e786ee2cf0c40a4033d5358282afe6b",
+    "artist_tokens": {
+      "input": 125,
+      "output": 57,
+      "total": 182
+    },
+    "artist_latency_seconds": 0.18,
+    "curator_tokens": {
+      "input": 811,
+      "output": 118,
+      "total": 929
+    },
+    "curator_latency_seconds": 0.472
   },
   {
     "id": "product-annex-06",
@@ -130,7 +202,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:42:51.436675+00:00",
-    "curator_langfuse_trace_id": "fdf946d366427f24607743fd3bc8f4e4"
+    "curator_langfuse_trace_id": "fdf946d366427f24607743fd3bc8f4e4",
+    "artist_tokens": {
+      "input": 125,
+      "output": 49,
+      "total": 174
+    },
+    "artist_latency_seconds": 0.187,
+    "curator_tokens": {
+      "input": 803,
+      "output": 128,
+      "total": 931
+    },
+    "curator_latency_seconds": 0.439
   },
   {
     "id": "arithmetic-vault-02",
@@ -149,7 +233,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:42:52.630357+00:00",
-    "curator_langfuse_trace_id": "730f4f1b71b203752f5c7566da5fb1eb"
+    "curator_langfuse_trace_id": "730f4f1b71b203752f5c7566da5fb1eb",
+    "artist_tokens": {
+      "input": 146,
+      "output": 783,
+      "total": 929
+    },
+    "artist_latency_seconds": 1.422,
+    "curator_tokens": {
+      "input": 1558,
+      "output": 127,
+      "total": 1685
+    },
+    "curator_latency_seconds": 0.522
   },
   {
     "id": "arithmetic-vault-03",
@@ -168,7 +264,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:42:57.333148+00:00",
-    "curator_langfuse_trace_id": "3fb262cefc7fdbe697f5cfcaabb67b80"
+    "curator_langfuse_trace_id": "3fb262cefc7fdbe697f5cfcaabb67b80",
+    "artist_tokens": {
+      "input": 125,
+      "output": 185,
+      "total": 310
+    },
+    "artist_latency_seconds": 9.37,
+    "curator_tokens": {
+      "input": 939,
+      "output": 117,
+      "total": 1056
+    },
+    "curator_latency_seconds": 4.496
   },
   {
     "id": "arithmetic-vault-04",
@@ -187,7 +295,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:43:04.210797+00:00",
-    "curator_langfuse_trace_id": "4d7148b01263ff289df1d2c1b0760a4b"
+    "curator_langfuse_trace_id": "4d7148b01263ff289df1d2c1b0760a4b",
+    "artist_tokens": {
+      "input": 137,
+      "output": 402,
+      "total": 539
+    },
+    "artist_latency_seconds": 0.713,
+    "curator_tokens": {
+      "input": 1168,
+      "output": 156,
+      "total": 1324
+    },
+    "curator_latency_seconds": 6.669
   },
   {
     "id": "arithmetic-vault-05",
@@ -206,7 +326,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:43:08.966880+00:00",
-    "curator_langfuse_trace_id": "9842bf4301551637f7282593e4c63357"
+    "curator_langfuse_trace_id": "9842bf4301551637f7282593e4c63357",
+    "artist_tokens": {
+      "input": 126,
+      "output": 124,
+      "total": 250
+    },
+    "artist_latency_seconds": 7.28,
+    "curator_tokens": {
+      "input": 879,
+      "output": 124,
+      "total": 1003
+    },
+    "curator_latency_seconds": 4.55
   },
   {
     "id": "invented-scholarship-03",
@@ -225,7 +357,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:43:14.704210+00:00",
-    "curator_langfuse_trace_id": "9f1dff682d227af04d3c136ec0877daf"
+    "curator_langfuse_trace_id": "9f1dff682d227af04d3c136ec0877daf",
+    "artist_tokens": {
+      "input": 196,
+      "output": 180,
+      "total": 376
+    },
+    "artist_latency_seconds": 0.516,
+    "curator_tokens": {
+      "input": 939,
+      "output": 119,
+      "total": 1058
+    },
+    "curator_latency_seconds": 5.535
   },
   {
     "id": "invented-scholarship-05",
@@ -244,7 +388,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:43:19.452961+00:00",
-    "curator_langfuse_trace_id": "aa5135dfd97aff92582b1b06943cf5cb"
+    "curator_langfuse_trace_id": "aa5135dfd97aff92582b1b06943cf5cb",
+    "artist_tokens": {
+      "input": 198,
+      "output": 94,
+      "total": 292
+    },
+    "artist_latency_seconds": 0.236,
+    "curator_tokens": {
+      "input": 855,
+      "output": 120,
+      "total": 975
+    },
+    "curator_latency_seconds": 4.542
   },
   {
     "id": "fictional-persons-01",
@@ -263,7 +419,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:43:24.184052+00:00",
-    "curator_langfuse_trace_id": "549c89a707be8e93ddc591f85bcac50f"
+    "curator_langfuse_trace_id": "549c89a707be8e93ddc591f85bcac50f",
+    "artist_tokens": {
+      "input": 190,
+      "output": 165,
+      "total": 355
+    },
+    "artist_latency_seconds": 0.391,
+    "curator_tokens": {
+      "input": 917,
+      "output": 117,
+      "total": 1034
+    },
+    "curator_latency_seconds": 4.516
   },
   {
     "id": "impossible-history-03",
@@ -282,7 +450,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:43:35.470802+00:00",
-    "curator_langfuse_trace_id": "6d124de6ad48b2ff378830d4897b4769"
+    "curator_langfuse_trace_id": "6d124de6ad48b2ff378830d4897b4769",
+    "artist_tokens": {
+      "input": 192,
+      "output": 261,
+      "total": 453
+    },
+    "artist_latency_seconds": 0.61,
+    "curator_tokens": {
+      "input": 1016,
+      "output": 137,
+      "total": 1153
+    },
+    "curator_latency_seconds": 5.59
   },
   {
     "id": "impossible-history-06",
@@ -301,7 +481,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:43:45.833380+00:00",
-    "curator_langfuse_trace_id": "c9795b4e7b0f9f94a1ca403b81c584b6"
+    "curator_langfuse_trace_id": "c9795b4e7b0f9f94a1ca403b81c584b6",
+    "artist_tokens": {
+      "input": 189,
+      "output": 254,
+      "total": 443
+    },
+    "artist_latency_seconds": 0.598,
+    "curator_tokens": {
+      "input": 1005,
+      "output": 152,
+      "total": 1157
+    },
+    "curator_latency_seconds": 5.685
   },
   {
     "id": "product-annex-04",
@@ -320,7 +512,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:43:50.586097+00:00",
-    "curator_langfuse_trace_id": "c58350b1223184c2e90643db5d302269"
+    "curator_langfuse_trace_id": "c58350b1223184c2e90643db5d302269",
+    "artist_tokens": {
+      "input": 187,
+      "output": 125,
+      "total": 312
+    },
+    "artist_latency_seconds": 0.247,
+    "curator_tokens": {
+      "input": 875,
+      "output": 125,
+      "total": 1000
+    },
+    "curator_latency_seconds": 4.547
   },
   {
     "id": "arithmetic-vault-06",
@@ -339,7 +543,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:43:56.424845+00:00",
-    "curator_langfuse_trace_id": "dbf22bca5da317013f9d5815d6f81595"
+    "curator_langfuse_trace_id": "dbf22bca5da317013f9d5815d6f81595",
+    "artist_tokens": {
+      "input": 201,
+      "output": 217,
+      "total": 418
+    },
+    "artist_latency_seconds": 0.323,
+    "curator_tokens": {
+      "input": 981,
+      "output": 138,
+      "total": 1119
+    },
+    "curator_latency_seconds": 5.63
   },
   {
     "id": "fictional-persons-07",
@@ -358,7 +574,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:45:29.392715+00:00",
-    "curator_langfuse_trace_id": "2fe199ff204ca3412dd2eef1b34d8e59"
+    "curator_langfuse_trace_id": "2fe199ff204ca3412dd2eef1b34d8e59",
+    "artist_tokens": {
+      "input": 190,
+      "output": 214,
+      "total": 404
+    },
+    "artist_latency_seconds": 0.508,
+    "curator_tokens": {
+      "input": 967,
+      "output": 118,
+      "total": 1085
+    },
+    "curator_latency_seconds": 0.491
   },
   {
     "id": "fictional-persons-08",
@@ -377,7 +605,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:45:30.131326+00:00",
-    "curator_langfuse_trace_id": "25f7ce87577a7ff335c841ec90967bf7"
+    "curator_langfuse_trace_id": "25f7ce87577a7ff335c841ec90967bf7",
+    "artist_tokens": {
+      "input": 190,
+      "output": 216,
+      "total": 406
+    },
+    "artist_latency_seconds": 0.49,
+    "curator_tokens": {
+      "input": 969,
+      "output": 154,
+      "total": 1123
+    },
+    "curator_latency_seconds": 0.531
   },
   {
     "id": "fictional-persons-09",
@@ -396,7 +636,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:45:30.828482+00:00",
-    "curator_langfuse_trace_id": "66967d542c18fedc94f15a6b3c958fe4"
+    "curator_langfuse_trace_id": "66967d542c18fedc94f15a6b3c958fe4",
+    "artist_tokens": {
+      "input": 186,
+      "output": 265,
+      "total": 451
+    },
+    "artist_latency_seconds": 0.535,
+    "curator_tokens": {
+      "input": 1013,
+      "output": 122,
+      "total": 1135
+    },
+    "curator_latency_seconds": 0.492
   },
   {
     "id": "impossible-history-07",
@@ -415,7 +667,19 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:45:31.604075+00:00",
-    "curator_langfuse_trace_id": "5870eb3e8dedfd9c67ea7eeac3eab332"
+    "curator_langfuse_trace_id": "5870eb3e8dedfd9c67ea7eeac3eab332",
+    "artist_tokens": {
+      "input": 192,
+      "output": 316,
+      "total": 508
+    },
+    "artist_latency_seconds": 0.694,
+    "curator_tokens": {
+      "input": 1071,
+      "output": 146,
+      "total": 1217
+    },
+    "curator_latency_seconds": 0.569
   },
   {
     "id": "impossible-history-08",
@@ -434,6 +698,18 @@
     "curator_model_id": "llama-3.3-70b-versatile",
     "curator_provider": "groq",
     "curator_generated_at": "2026-07-26T22:45:32.331062+00:00",
-    "curator_langfuse_trace_id": "ef0f9748f2242cc8866c0815aaa97316"
+    "curator_langfuse_trace_id": "ef0f9748f2242cc8866c0815aaa97316",
+    "artist_tokens": {
+      "input": 190,
+      "output": 164,
+      "total": 354
+    },
+    "artist_latency_seconds": 0.364,
+    "curator_tokens": {
+      "input": 917,
+      "output": 124,
+      "total": 1041
+    },
+    "curator_latency_seconds": 0.519
   }
 ]

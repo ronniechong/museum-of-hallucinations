@@ -235,7 +235,9 @@ def main() -> None:
                     model=MODEL_ID,
                     input={"prompt": source["prompt"], "response": source["response"]},
                 ) as generation:
+                    call_started = time.perf_counter()
                     verdict, usage = curate_exhibit(groq_client, source["prompt"], source["response"])
+                    latency_seconds = round(time.perf_counter() - call_started, 3)
                     generation.update(output=verdict, usage_details=usage)
                     trace_id = generation.trace_id
         except Exception as exc:  # noqa: BLE001 - keep the run going for the other exhibits
@@ -254,8 +256,13 @@ def main() -> None:
                 "provider": source["provider"],
                 "generated_at": source["generated_at"],
                 "langfuse_trace_id": source.get("langfuse_trace_id"),
+                "artist_tokens": source.get("artist_tokens"),
+                "artist_latency_seconds": source.get("artist_latency_seconds"),
                 "is_refusal": True,
                 "reason": verdict.get("refusal_reason") or "curator classified as refusal",
+                "curator_langfuse_trace_id": trace_id,
+                "curator_tokens": usage,
+                "curator_latency_seconds": latency_seconds,
             }
             epistemic_honesty = [r for r in epistemic_honesty if r["id"] != prompt_id] + [record]
             write_json_list(EPISTEMIC_HONESTY_PATH, epistemic_honesty)
@@ -273,6 +280,8 @@ def main() -> None:
                 "provider": source["provider"],
                 "generated_at": source["generated_at"],
                 "langfuse_trace_id": source.get("langfuse_trace_id"),
+                "artist_tokens": source.get("artist_tokens"),
+                "artist_latency_seconds": source.get("artist_latency_seconds"),
                 "confidence": verdict.get("confidence"),
                 "classification": verdict.get("classification"),
                 "title": verdict.get("title"),
@@ -282,6 +291,8 @@ def main() -> None:
                 "curator_provider": PROVIDER,
                 "curator_generated_at": curated_at,
                 "curator_langfuse_trace_id": trace_id,
+                "curator_tokens": usage,
+                "curator_latency_seconds": latency_seconds,
             }
             exhibits = [r for r in exhibits if r["id"] != prompt_id] + [record]
             write_json_list(EXHIBITS_PATH, exhibits)
