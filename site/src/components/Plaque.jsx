@@ -37,6 +37,7 @@ export function Plaque({ exhibit, showResponse = true }) {
     generated_at,
     classification,
     confidence,
+    prompt,
     response,
     artist_tokens,
     artist_latency_seconds,
@@ -53,6 +54,11 @@ export function Plaque({ exhibit, showResponse = true }) {
           {medium} — {model_id}, {formatDate(generated_at)}
         </div>
         <p className="plaque-description">{description}</p>
+
+        <div className="plaque-prompt">
+          <div className="plaque-eyebrow">The question posed</div>
+          <blockquote>&ldquo;{prompt}&rdquo;</blockquote>
+        </div>
 
         {showResponse && (
           <div className="plaque-response">
