@@ -198,6 +198,40 @@ h3 {
   font-weight: 600;
 }
 
+.tooltip-term {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dotted var(--plaque-muted);
+}
+
+.tooltip-bubble {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  transform: translateY(-8px);
+  width: 240px;
+  padding: 0.6rem 0.75rem;
+  background: var(--wall);
+  color: var(--text-primary);
+  border: 1px solid var(--gilt-dark);
+  border-radius: var(--radius);
+  font-size: 0.72rem;
+  font-style: normal;
+  line-height: 1.4;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.tooltip-term:hover .tooltip-bubble,
+.tooltip-term:focus .tooltip-bubble,
+.tooltip-term:focus-within .tooltip-bubble {
+  opacity: 1;
+  visibility: visible;
+}
+
 .vote-widget {
   margin-top: 1rem;
   padding-top: 0.75rem;

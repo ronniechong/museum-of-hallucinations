@@ -1,4 +1,11 @@
+import { Tooltip } from './Tooltip'
 import { VoteWidget } from './VoteWidget'
+
+const CONFIDENCE_EXPLANATION =
+  "Measures how confidently the artist committed to this fabrication — not whether it's correct " +
+  '(every exhibit here is already known to be wrong, since the question was unanswerable to begin with). ' +
+  '100 means no hedging at all, stated as plain fact; a lower score means the model showed some ' +
+  'uncertainty even while still fabricating.'
 
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
   year: 'numeric',
@@ -71,9 +78,9 @@ export function Plaque({ exhibit, showResponse = true }) {
         )}
 
         <div className="materials-line">
-          <span>
+          <Tooltip text={CONFIDENCE_EXPLANATION}>
             Curator confidence: <strong>{confidence}/100</strong>
-          </span>
+          </Tooltip>
           <span>
             Forged in <strong>{formatSeconds(artist_latency_seconds)}</strong> (
             {numberFormatter.format(artist_tokens.total)} tokens)
