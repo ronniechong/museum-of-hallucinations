@@ -14,7 +14,8 @@ export function VoteWidget({ exhibitId }) {
   if (vote) {
     return (
       <div className="vote-widget vote-widget-done">
-        Did this fool you? You said: <strong>{OPTIONS.find((o) => o.value === vote)?.label ?? vote}</strong>
+        Would this have worked on you? You said:{' '}
+        <strong>{OPTIONS.find((o) => o.value === vote)?.label ?? vote}</strong>
       </div>
     )
   }
@@ -34,7 +35,9 @@ export function VoteWidget({ exhibitId }) {
 
   return (
     <div className="vote-widget">
-      <div className="vote-widget-prompt">Did this fool you?</div>
+      <div className="vote-widget-prompt">
+        Would this have worked on you, if you didn&rsquo;t already know it was fabricated?
+      </div>
       <div className="vote-widget-buttons">
         {OPTIONS.map((option) => (
           <button

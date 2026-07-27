@@ -51,7 +51,7 @@ export function About() {
         Underneath the joke, this project is a small, complete AI engineering loop built on a
         near-zero budget: generation (the artist), LLM-as-judge evaluation (the curator),
         observability (every generation traced, including token usage and latency), and human
-        feedback — vote on whether an exhibit fooled you, on any plaque.
+        feedback — vote on whether an exhibit would have worked on you, on any plaque.
       </p>
     </div>
   )
