@@ -4,7 +4,7 @@
 !.env.example
 CLAUDE.local.md
 docker-compose.override.yml
-data/
+/data/
 *.db
 .venv/
 __pycache__/
