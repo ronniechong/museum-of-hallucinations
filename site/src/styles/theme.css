@@ -286,6 +286,12 @@ h3 {
   font-style: italic;
 }
 
+.vote-widget-tally {
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  color: var(--plaque-muted);
+}
+
 /* Wing/exhibit grid */
 .wing-grid {
   display: grid;

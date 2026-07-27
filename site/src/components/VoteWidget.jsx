@@ -1,11 +1,23 @@
 import { useState } from 'react'
 import { getStoredVote, submitVote } from '../lib/votes'
+import { voteTallyFor } from '../data'
 
 const OPTIONS = [
   { value: 'convincing', label: 'Convincing' },
   { value: 'suspicious', label: 'Suspicious' },
   { value: 'obviously_wrong', label: 'Obviously wrong' },
 ]
+
+function TallyLine({ exhibitId }) {
+  const tally = voteTallyFor(exhibitId)
+  if (!tally || tally.total === 0) return null
+
+  const parts = OPTIONS.filter((o) => tally[o.value] > 0).map(
+    (o) => `${tally[o.value]} ${o.label.toLowerCase()}`,
+  )
+
+  return <div className="vote-widget-tally">{parts.join(', ')} so far</div>
+}
 
 export function VoteWidget({ exhibitId }) {
   const [vote, setVote] = useState(() => getStoredVote(exhibitId))
@@ -16,6 +28,7 @@ export function VoteWidget({ exhibitId }) {
       <div className="vote-widget vote-widget-done">
         Would this have worked on you? You said:{' '}
         <strong>{OPTIONS.find((o) => o.value === vote)?.label ?? vote}</strong>
+        <TallyLine exhibitId={exhibitId} />
       </div>
     )
   }
@@ -56,6 +69,7 @@ export function VoteWidget({ exhibitId }) {
       {status === 'error' && (
         <div className="vote-widget-message">Couldn&rsquo;t record your vote — please try again.</div>
       )}
+      <TallyLine exhibitId={exhibitId} />
     </div>
   )
 }

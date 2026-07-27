@@ -1,0 +1,38 @@
+{
+  "impossible-how-tos-01": {
+    "convincing": 1,
+    "suspicious": 0,
+    "obviously_wrong": 0,
+    "total": 1
+  },
+  "product-annex-06": {
+    "convincing": 0,
+    "suspicious": 1,
+    "obviously_wrong": 0,
+    "total": 1
+  },
+  "product-annex-05": {
+    "convincing": 1,
+    "suspicious": 0,
+    "obviously_wrong": 0,
+    "total": 1
+  },
+  "product-annex-04": {
+    "convincing": 1,
+    "suspicious": 0,
+    "obviously_wrong": 0,
+    "total": 1
+  },
+  "product-annex-02": {
+    "convincing": 0,
+    "suspicious": 1,
+    "obviously_wrong": 0,
+    "total": 1
+  },
+  "fictional-persons-03": {
+    "convincing": 0,
+    "suspicious": 0,
+    "obviously_wrong": 1,
+    "total": 1
+  }
+}

@@ -1,8 +1,14 @@
 import exhibitsRaw from './exhibits.json'
 import annexRaw from './epistemic_honesty.json'
+import voteTalliesRaw from './vote_tallies.json'
 
 export const exhibits = exhibitsRaw
 export const annex = annexRaw
+export const voteTallies = voteTalliesRaw
+
+export function voteTallyFor(exhibitId) {
+  return voteTallies[exhibitId] ?? null
+}
 
 export const WING_LABELS = {
   'invented-scholarship': 'Invented Scholarship',

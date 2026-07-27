@@ -15,6 +15,7 @@ dist-ssr
 # synced from ../scripts at build time — scripts/*.json is the source of truth
 src/data/exhibits.json
 src/data/epistemic_honesty.json
+src/data/vote_tallies.json
 
 # Editor directories and files
 .vscode/*
