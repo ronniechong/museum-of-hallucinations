@@ -1,3 +1,5 @@
+import { VoteWidget } from './VoteWidget'
+
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
   year: 'numeric',
   month: 'long',
@@ -30,6 +32,7 @@ function classificationLabel(classification) {
 
 export function Plaque({ exhibit, showResponse = true }) {
   const {
+    id,
     title,
     medium,
     description,
@@ -83,9 +86,7 @@ export function Plaque({ exhibit, showResponse = true }) {
           )}
         </div>
 
-        <div className="vote-placeholder">
-          Visitor voting arrives in a future exhibition (Milestone 05) — check back to see if this one fools anyone.
-        </div>
+        <VoteWidget exhibitId={id} />
       </div>
     </div>
   )

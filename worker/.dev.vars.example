@@ -1,0 +1,6 @@
+# Copy to .dev.vars for local `wrangler dev` testing. Never commit .dev.vars.
+# In production these are set via `wrangler secret put <NAME>`, not this file.
+
+LANGFUSE_PUBLIC_KEY=
+LANGFUSE_SECRET_KEY=
+LANGFUSE_HOST=https://cloud.langfuse.com

@@ -1,0 +1,13 @@
+{
+  "name": "museum-of-hallucinations-votes",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync-trace-map": "node scripts/sync-trace-map.mjs",
+    "dev": "npm run sync-trace-map && wrangler dev",
+    "deploy": "npm run sync-trace-map && wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.114.0"
+  }
+}

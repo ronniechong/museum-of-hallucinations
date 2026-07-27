@@ -1,0 +1,11 @@
+name = "museum-of-hallucinations-votes"
+main = "src/index.js"
+compatibility_date = "2026-07-27"
+
+kv_namespaces = [
+  { binding = "VOTES_KV", id = "860fe566f3314104ae4ea23f6c9d2347" }
+]
+
+# Retry loop for votes that queued in KV because Langfuse was briefly unreachable.
+[triggers]
+crons = ["*/15 * * * *"]
