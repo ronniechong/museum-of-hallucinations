@@ -1,0 +1,43 @@
+name: Refresh vote tallies
+
+on:
+  schedule:
+    # Every 3 days at 00:00 UTC. Cron has no native "every N days" concept
+    # tied to a start date, so this is the conventional day-of-month
+    # approximation (fires on 1, 4, 7, ... 31, then wraps) — good enough for
+    # a low-traffic tally refresh, not a precision-timed job.
+    - cron: '0 0 */3 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v3
+
+      - run: uv sync
+        working-directory: scripts
+
+      - run: uv run python vote_tallies.py
+        working-directory: scripts
+        env:
+          LANGFUSE_HOST: ${{ secrets.LANGFUSE_HOST }}
+          LANGFUSE_PUBLIC_KEY: ${{ secrets.LANGFUSE_PUBLIC_KEY }}
+          LANGFUSE_SECRET_KEY: ${{ secrets.LANGFUSE_SECRET_KEY }}
+
+      - name: Commit and push if tallies changed
+        run: |
+          if git diff --quiet -- scripts/vote_tallies.json; then
+            echo "No vote tally changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add scripts/vote_tallies.json
+          git commit -m "chore(votes): refresh vote tallies"
+          git push

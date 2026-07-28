@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'site/**'
+      - 'scripts/vote_tallies.json'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
