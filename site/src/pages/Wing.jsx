@@ -11,7 +11,6 @@ export function Wing({ slug }) {
       <Link to="/" className="back-link">
         ← Back to the gallery
       </Link>
-      <p className="eyebrow-tag">Wing</p>
       <h1>{wingLabel(slug)}</h1>
       <p>{exhibits.length} exhibits in this wing.</p>
 

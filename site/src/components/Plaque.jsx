@@ -7,6 +7,16 @@ const CONFIDENCE_EXPLANATION =
   '100 means no hedging at all, stated as plain fact; a lower score means the model showed some ' +
   'uncertainty even while still fabricating.'
 
+const FORGED_EXPLANATION =
+  'How long the artist model took to generate this fabrication, and how many tokens (word ' +
+  'fragments) it used doing so — a rough proxy for cost, since this whole pipeline runs on a ' +
+  "free-tier API budget."
+
+const APPRAISED_EXPLANATION =
+  'How long the curator model took to judge this fabrication and write the plaque copy, and how ' +
+  'many tokens it used. A separate, larger model than the artist — chosen for more reliable ' +
+  'structured judgments than the artist model would give.'
+
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
   year: 'numeric',
   month: 'long',
@@ -78,17 +88,20 @@ export function Plaque({ exhibit, showResponse = true }) {
         )}
 
         <div className="materials-line">
-          <Tooltip text={CONFIDENCE_EXPLANATION}>
+          <span>
             Curator confidence: <strong>{confidence}/100</strong>
-          </Tooltip>
+            <Tooltip text={CONFIDENCE_EXPLANATION} />
+          </span>
           <span>
             Forged in <strong>{formatSeconds(artist_latency_seconds)}</strong> (
             {numberFormatter.format(artist_tokens.total)} tokens)
+            <Tooltip text={FORGED_EXPLANATION} />
           </span>
           {curator_tokens && (
             <span>
               Appraised in <strong>{formatSeconds(curator_latency_seconds)}</strong> (
               {numberFormatter.format(curator_tokens.total)} tokens)
+              <Tooltip text={APPRAISED_EXPLANATION} />
             </span>
           )}
         </div>

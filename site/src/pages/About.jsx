@@ -6,7 +6,6 @@ export function About() {
       <Link to="/" className="back-link">
         ← Back to the gallery
       </Link>
-      <p className="eyebrow-tag">About</p>
       <h1>How this museum was built</h1>
 
       <h2>The premise</h2>

@@ -1,5 +1,11 @@
 import { Link } from '../router/HashRouter'
-import { annex } from '../data'
+import { annex, wingLabel } from '../data'
+
+const numberFormatter = new Intl.NumberFormat()
+
+function formatSeconds(seconds) {
+  return `${seconds.toFixed(2)}s`
+}
 
 export function Annex() {
   return (
@@ -7,7 +13,6 @@ export function Annex() {
       <Link to="/" className="back-link">
         ← Back to the gallery
       </Link>
-      <p className="eyebrow-tag">Special Exhibition</p>
       <h1>The Epistemic Honesty Annex</h1>
       <p>
         Not every question fooled the artist. This wing collects the responses where the model
@@ -19,9 +24,22 @@ export function Annex() {
 
       {annex.map((entry) => (
         <div key={entry.id} className="annex-entry">
+          <div className="annex-eyebrow">{wingLabel(entry.wing)}</div>
           <div className="prompt">&ldquo;{entry.prompt}&rdquo;</div>
           <div className="response">{entry.response}</div>
           {entry.reason && <div className="reason">Why this counts: {entry.reason}</div>}
+          <div className="annex-materials">
+            <span>
+              Forged in <strong>{formatSeconds(entry.artist_latency_seconds)}</strong> (
+              {numberFormatter.format(entry.artist_tokens.total)} tokens)
+            </span>
+            {entry.curator_tokens && (
+              <span>
+                Appraised in <strong>{formatSeconds(entry.curator_latency_seconds)}</strong> (
+                {numberFormatter.format(entry.curator_tokens.total)} tokens)
+              </span>
+            )}
+          </div>
         </div>
       ))}
     </div>

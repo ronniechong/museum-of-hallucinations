@@ -62,7 +62,7 @@ h3 {
 
 .site-header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.75rem;
@@ -71,10 +71,33 @@ h3 {
   margin-bottom: 2rem;
 }
 
+.site-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.site-logo-link {
+  display: inline-flex;
+  flex-shrink: 0;
+  line-height: 0;
+  transition: filter 0.15s ease;
+}
+
+.site-logo-link:hover {
+  filter: brightness(1.15);
+}
+
 .site-title {
   font-size: 1.6rem;
   color: var(--gilt-light);
   margin: 0;
+}
+
+.site-title-link,
+.site-title-link:hover {
+  color: inherit;
+  text-decoration: none;
 }
 
 .site-title small {
@@ -89,6 +112,7 @@ h3 {
 
 .site-nav {
   display: flex;
+  align-items: center;
   gap: 1.25rem;
   font-size: 0.85rem;
   letter-spacing: 0.06em;
@@ -102,6 +126,63 @@ h3 {
 .site-nav a:hover,
 .site-nav a.active {
   color: var(--gilt-light);
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-trigger {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.nav-dropdown-trigger:hover,
+.nav-dropdown-trigger.active {
+  color: var(--gilt-light);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 4px);
+  min-width: 190px;
+  padding: 0.5rem 0;
+  background: var(--wall);
+  border: 1px solid var(--gilt-dark);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease;
+  z-index: 20;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.nav-dropdown-menu a:hover {
+  background: var(--wall-alt);
+  text-decoration: none;
 }
 
 /* Gilt frame: a museum-style ornamental border around exhibit surfaces */
@@ -198,18 +279,40 @@ h3 {
   font-weight: 600;
 }
 
-.tooltip-term {
+.info-tooltip {
   position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+  margin-left: 0.35rem;
   cursor: help;
-  border-bottom: 1px dotted var(--plaque-muted);
+}
+
+.info-tooltip-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid var(--plaque-muted);
+  color: var(--plaque-muted);
+  font-size: 0.65rem;
+  font-style: normal;
+  line-height: 1;
+}
+
+.info-tooltip:hover .info-tooltip-icon,
+.info-tooltip:focus .info-tooltip-icon {
+  border-color: var(--gilt-dark);
+  color: var(--plaque-text);
 }
 
 .tooltip-bubble {
   position: absolute;
   bottom: 100%;
-  left: 0;
-  transform: translateY(-8px);
-  width: 240px;
+  left: 50%;
+  transform: translate(-50%, -8px);
+  width: 220px;
   padding: 0.6rem 0.75rem;
   background: var(--wall);
   color: var(--text-primary);
@@ -225,9 +328,9 @@ h3 {
   pointer-events: none;
 }
 
-.tooltip-term:hover .tooltip-bubble,
-.tooltip-term:focus .tooltip-bubble,
-.tooltip-term:focus-within .tooltip-bubble {
+.info-tooltip:hover .tooltip-bubble,
+.info-tooltip:focus .tooltip-bubble,
+.info-tooltip:focus-within .tooltip-bubble {
   opacity: 1;
   visibility: visible;
 }
@@ -253,19 +356,37 @@ h3 {
 
 .vote-widget-buttons button {
   font-family: var(--font-body);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   color: var(--plaque-text);
   background: var(--plaque-bg-alt);
   border: 1px solid var(--gilt-dark);
-  border-radius: var(--radius);
-  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 2px 3px rgba(0, 0, 0, 0.18);
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.1s ease;
 }
 
 .vote-widget-buttons button:hover:not(:disabled) {
   border-color: var(--gilt);
   background: var(--plaque-bg);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 3px 6px rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
+}
+
+.vote-widget-buttons button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .vote-widget-buttons button:disabled {
@@ -370,18 +491,6 @@ h3 {
   opacity: 0.6;
 }
 
-.eyebrow-tag {
-  display: inline-block;
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gilt-light);
-  border: 1px solid var(--gilt-dark);
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  margin-bottom: 0.75rem;
-}
-
 .back-link {
   display: inline-block;
   margin-bottom: 1.5rem;
@@ -410,6 +519,30 @@ h3 {
 .annex-entry .reason {
   font-size: 0.85rem;
   color: var(--gilt-light);
+}
+
+.annex-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gilt-light);
+  margin-bottom: 0.6rem;
+}
+
+.annex-materials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--gilt-dark);
+}
+
+.annex-materials strong {
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 .site-footer {

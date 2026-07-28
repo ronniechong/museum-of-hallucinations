@@ -1,7 +1,9 @@
-export function Tooltip({ children, text }) {
+export function Tooltip({ text }) {
   return (
-    <span className="tooltip-term" tabIndex={0}>
-      {children}
+    <span className="info-tooltip" tabIndex={0}>
+      <span className="info-tooltip-icon" aria-hidden="true">
+        !
+      </span>
       <span className="tooltip-bubble" role="tooltip">
         {text}
       </span>

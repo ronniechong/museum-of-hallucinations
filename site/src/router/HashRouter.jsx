@@ -32,8 +32,11 @@ export function useRoute() {
 }
 
 export function Link({ to, children, className }) {
+  // Home is the router's default path, so it doesn't need a "#/" in the URL —
+  // link straight to the base path instead of a hash fragment.
+  const href = to === '/' ? import.meta.env.BASE_URL : `#${to}`
   return (
-    <a href={`#${to}`} className={className}>
+    <a href={href} className={className}>
       {children}
     </a>
   )
