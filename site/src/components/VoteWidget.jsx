@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { getStoredVote, submitVote } from '../lib/votes'
-import { voteTallyFor } from '../data'
+import { voteTallyFor, voteTalliesGeneratedAt } from '../data'
 
 const OPTIONS = [
   { value: 'convincing', label: 'Convincing' },
@@ -8,15 +8,31 @@ const OPTIONS = [
   { value: 'obviously_wrong', label: 'Obviously wrong' },
 ]
 
+const dateFormatter = new Intl.DateTimeFormat(undefined, {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+})
+
 function TallyLine({ exhibitId }) {
   const tally = voteTallyFor(exhibitId)
-  if (!tally || tally.total === 0) return null
+  const lastUpdated = voteTalliesGeneratedAt
+    ? dateFormatter.format(new Date(voteTalliesGeneratedAt))
+    : null
 
-  const parts = OPTIONS.filter((o) => tally[o.value] > 0).map(
-    (o) => `${tally[o.value]} ${o.label.toLowerCase()}`,
+  const summary =
+    tally && tally.total > 0
+      ? OPTIONS.filter((o) => tally[o.value] > 0)
+          .map((o) => `${tally[o.value]} ${o.label.toLowerCase()}`)
+          .join(', ') + ' so far'
+      : 'No votes yet'
+
+  return (
+    <div className="vote-widget-tally">
+      {summary}
+      {lastUpdated && <> — last updated {lastUpdated}</>}
+    </div>
   )
-
-  return <div className="vote-widget-tally">{parts.join(', ')} so far</div>
 }
 
 export function VoteWidget({ exhibitId }) {

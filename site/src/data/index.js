@@ -4,7 +4,8 @@ import voteTalliesRaw from './vote_tallies.json'
 
 export const exhibits = exhibitsRaw
 export const annex = annexRaw
-export const voteTallies = voteTalliesRaw
+export const voteTallies = voteTalliesRaw.tallies
+export const voteTalliesGeneratedAt = voteTalliesRaw.generated_at
 
 export function voteTallyFor(exhibitId) {
   return voteTallies[exhibitId] ?? null

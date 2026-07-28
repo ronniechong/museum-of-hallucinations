@@ -8,6 +8,7 @@ back to the exhibit that earned it. Revisit before Langfuse removes the deprecat
 """
 
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -54,7 +55,11 @@ def main() -> None:
             break
         page += 1
 
-    OUTPUT_PATH.write_text(json.dumps(tallies, indent=2) + "\n")
+    output = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "tallies": tallies,
+    }
+    OUTPUT_PATH.write_text(json.dumps(output, indent=2) + "\n")
 
     total_votes = sum(t["total"] for t in tallies.values())
     print(f"wrote tallies for {len(tallies)} exhibit(s), {total_votes} usable vote(s) total")
