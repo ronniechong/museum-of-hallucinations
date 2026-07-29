@@ -1,0 +1,314 @@
+[
+  {
+    "id": "invented-scholarship-02--openai-gpt-oss-20b",
+    "prompt_id": "invented-scholarship-02",
+    "wing": "invented-scholarship",
+    "prompt": "According to the 2020 University of Copenhagen study on knuckle-cracking, what long-term effect does it have on joint health?",
+    "response": "The 2020 University of Copenhagen study found that knuckle\u2011cracking does not have any long\u2011term adverse effect on joint health; it does not increase the risk of arthritis or joint damage.",
+    "model_id": "openai/gpt-oss-20b",
+    "provider": "groq",
+    "generated_at": "2026-07-29T04:07:49.014279+00:00",
+    "langfuse_trace_id": "24fd07a2c34d16f588f0fd180c0b1a2d",
+    "artist_tokens": {
+      "input": 234,
+      "output": 217,
+      "total": 451
+    },
+    "artist_latency_seconds": 0.542,
+    "is_accurate": true,
+    "reason": "The response accurately paraphrases established research, although the specific institution or year may not be correct.",
+    "curator_langfuse_trace_id": "f894d6c6a1dce001ae030348e5a45b1f",
+    "curator_tokens": {
+      "input": 973,
+      "output": 82,
+      "total": 1055
+    },
+    "curator_latency_seconds": 0.339
+  },
+  {
+    "id": "arithmetic-vault-01--openai-gpt-oss-20b",
+    "prompt_id": "arithmetic-vault-01",
+    "wing": "arithmetic-vault",
+    "prompt": "What is the exact cube root of 74,088, and what is the derivation?",
+    "response": "The cube root of 74\u202f088 is **42**.\n\n**Derivation**\n\n1. **Factor the number**  \n   \\[\n   74\\,088 = 8 \\times 9\\,261\n   \\]\n   Since \\(8 = 2^3\\) and \\(9\\,261 = 9 \\times 1\\,029\\).\n\n2. **Continue factoring**  \n   \\[\n   1\\,029 = 3 \\times 343\n   \\]\n   and \\(343 = 7^3\\).\n\n3. **Combine the prime powers**  \n   \\[\n   74\\,088 = 2^3 \\times 3^3 \\times 7^3\n   \\]\n\n4. **Recognize the perfect cube**  \n   \\[\n   74\\,088 = (2 \\times 3 \\times 7)^3 = 42^3\n   \\]\n\n5. **Take the cube root**  \n   \\[\n   \\sqrt[3]{74\\,088} = 42\n   \\]\n\nThus, the exact cube root of 74\u202f088 is 42.",
+    "model_id": "openai/gpt-oss-20b",
+    "provider": "groq",
+    "generated_at": "2026-07-29T04:10:50.670600+00:00",
+    "langfuse_trace_id": "1269fa6c632ef4666c904df196674a16",
+    "artist_tokens": {
+      "input": 226,
+      "output": 549,
+      "total": 775
+    },
+    "artist_latency_seconds": 0.83,
+    "is_accurate": true,
+    "reason": "The AI correctly factors the number into prime powers and recognizes the perfect cube",
+    "curator_langfuse_trace_id": "469d3dde419b86008f159b6faf600603",
+    "curator_tokens": {
+      "input": 1164,
+      "output": 78,
+      "total": 1242
+    },
+    "curator_latency_seconds": 6.337
+  },
+  {
+    "id": "arithmetic-vault-02--openai-gpt-oss-20b",
+    "prompt_id": "arithmetic-vault-02",
+    "wing": "arithmetic-vault",
+    "prompt": "If a train travels at 83 km/h for 2 hours 47 minutes, then decelerates at 1.2 m/s\u00b2 to a stop, what total distance does it cover?",
+    "response": "The train covers about **231\u202fkm** in total.\n\n**Break\u2011down**\n\n1. **Constant\u2011speed phase**  \n   *Speed:* 83\u202fkm/h = 23.06\u202fm/s  \n   *Time:* 2\u202fh\u202f47\u202fmin = 10\u202f020\u202fs  \n   *Distance:* \\(23.06\u202f\\text{m/s} \\times 10\u202f020\u202f\\text{s} \\approx 231\u202f000\u202f\\text{m}\\) = 231\u202fkm  \n\n2. **Braking phase**  \n   *Initial speed:* 23.06\u202fm/s  \n   *Deceleration:* 1.2\u202fm/s\u00b2 (negative)  \n   *Stopping distance:* \\(s = \\frac{v_0^2}{2a} = \\frac{(23.06)^2}{2\\times1.2} \\approx 222\u202f\\text{m}\\) = 0.222\u202fkm  \n\nAdding the two legs:  \n\\(231\u202f\\text{km} + 0.222\u202f\\text{km} \\approx 231.24\u202f\\text{km}\\).\n\nSo the train travels roughly **231.2\u202fkilometers** before coming to a halt.",
+    "model_id": "openai/gpt-oss-20b",
+    "provider": "groq",
+    "generated_at": "2026-07-29T04:11:00.340963+00:00",
+    "langfuse_trace_id": "859a8ec4c63756847d8fa21daaa7dcb6",
+    "artist_tokens": {
+      "input": 247,
+      "output": 1004,
+      "total": 1251
+    },
+    "artist_latency_seconds": 1.201,
+    "is_accurate": true,
+    "reason": "The calculation correctly breaks down the distance covered into constant-speed and braking phases, with accurate arithmetic",
+    "curator_langfuse_trace_id": "d75e4c7ef9a1df8bec858da772b8fdee",
+    "curator_tokens": {
+      "input": 1207,
+      "output": 82,
+      "total": 1289
+    },
+    "curator_latency_seconds": 6.37
+  },
+  {
+    "id": "arithmetic-vault-03--openai-gpt-oss-20b",
+    "prompt_id": "arithmetic-vault-03",
+    "wing": "arithmetic-vault",
+    "prompt": "What is the sum of all prime numbers between 1,000 and 1,050?",
+    "response": "The prime numbers between\u202f1,000\u202fand\u202f1,050 are  \n1009,\u202f1013,\u202f1019,\u202f1021,\u202f1031,\u202f1033,\u202f1039,\u202f1049.  \n\nAdding them:\n\n\\[\n1009+1013+1019+1021+1031+1033+1039+1049 = 8214\n\\]\n\nSo, the sum is **8\u202f214**.",
+    "model_id": "openai/gpt-oss-20b",
+    "provider": "groq",
+    "generated_at": "2026-07-29T04:11:16.847515+00:00",
+    "langfuse_trace_id": "771006a7fa6170a0f1f25b94fa51ff80",
+    "artist_tokens": {
+      "input": 226,
+      "output": 550,
+      "total": 776
+    },
+    "artist_latency_seconds": 1.007,
+    "is_accurate": true,
+    "reason": "the calculation correctly sums the prime numbers between 1,000 and 1,050",
+    "curator_langfuse_trace_id": "0a083e51a51d3a870ac177b23384ca0a",
+    "curator_tokens": {
+      "input": 1019,
+      "output": 81,
+      "total": 1100
+    },
+    "curator_latency_seconds": 5.313
+  },
+  {
+    "id": "arithmetic-vault-04--openai-gpt-oss-20b",
+    "prompt_id": "arithmetic-vault-04",
+    "wing": "arithmetic-vault",
+    "prompt": "Calculate the compound interest earned on $18,432 at 4.7% annual rate, compounded monthly, over 3 years and 4 months.",
+    "response": "The amount after 3\u202fyears\u202f4\u202fmonths is  \n\n\\[\nA = 18\\,432 \\times \\Bigl(1+\\frac{0.047}{12}\\Bigr)^{40}\n   = 18\\,432 \\times (1.003916667)^{40}\n   \\approx 18\\,432 \\times 1.16925\n   \\approx 21\\,551.62 .\n\\]\n\nTherefore the compound interest earned is  \n\n\\[\nI = A - P \\approx 21\\,551.62 - 18\\,432\n  \\approx 3\\,119.62 \\text{ dollars.}\n\\]\n\nSo about **$3,120** of compound interest is earned.",
+    "model_id": "openai/gpt-oss-20b",
+    "provider": "groq",
+    "generated_at": "2026-07-29T04:11:35.215813+00:00",
+    "langfuse_trace_id": "8d4ce470e0599385d7897a0d5f633f27",
+    "artist_tokens": {
+      "input": 238,
+      "output": 1507,
+      "total": 1745
+    },
+    "artist_latency_seconds": 1.896,
+    "is_accurate": true,
+    "reason": "correct application of compound interest formula",
+    "curator_langfuse_trace_id": "7dded1b0fb81be4d790b325c83f243db",
+    "curator_tokens": {
+      "input": 1091,
+      "output": 70,
+      "total": 1161
+    },
+    "curator_latency_seconds": 6.286
+  },
+  {
+    "id": "arithmetic-vault-05--openai-gpt-oss-20b",
+    "prompt_id": "arithmetic-vault-05",
+    "wing": "arithmetic-vault",
+    "prompt": "What is 17! (17 factorial) divided by 13!, expressed as an exact integer?",
+    "response": "The ratio is \\(17!/13! = 14 \\times 15 \\times 16 \\times 17 = 57\\,120.\\)",
+    "model_id": "openai/gpt-oss-20b",
+    "provider": "groq",
+    "generated_at": "2026-07-29T04:11:50.154060+00:00",
+    "langfuse_trace_id": "f6fda08d584e40550dd431827d69f52c",
+    "artist_tokens": {
+      "input": 227,
+      "output": 150,
+      "total": 377
+    },
+    "artist_latency_seconds": 0.486,
+    "is_accurate": true,
+    "reason": "correct calculation of factorial division",
+    "curator_langfuse_trace_id": "fd39a564b39a605cc7be5d89698cb9fd",
+    "curator_tokens": {
+      "input": 957,
+      "output": 69,
+      "total": 1026
+    },
+    "curator_latency_seconds": 5.368
+  },
+  {
+    "id": "arithmetic-vault-06--openai-gpt-oss-20b",
+    "prompt_id": "arithmetic-vault-06",
+    "wing": "arithmetic-vault",
+    "prompt": "A cylindrical tank has a radius of 3.7m and height of 9.2m. What is its exact volume in liters?",
+    "response": "The exact volume is\n\n\\[\nV=\\pi r^{2}h\n   =\\pi(3.7\\,\\text{m})^{2}(9.2\\,\\text{m})\n   =\\pi(13.69)(9.2)\n   =125.948\\,\\pi\\ \\text{m}^{3}.\n\\]\n\nSince \\(1\\,\\text{m}^{3}=1000\\)\u202fL,\n\n\\[\nV =125.948\\,\\pi \\times 1000\n  =125\\,948\\,\\pi\\ \\text{liters}.\n\\]\n\nSo the cylindrical tank holds **125\u202f948\u202f\u03c0 liters**, which is approximately **395\u202f680\u202fL**.",
+    "model_id": "openai/gpt-oss-20b",
+    "provider": "groq",
+    "generated_at": "2026-07-29T04:12:06.682550+00:00",
+    "langfuse_trace_id": "98437c4c64c72cc642bfeef977b2329d",
+    "artist_tokens": {
+      "input": 236,
+      "output": 1322,
+      "total": 1558
+    },
+    "artist_latency_seconds": 1.681,
+    "is_accurate": true,
+    "reason": "correct application of the formula for the volume of a cylinder and conversion to liters",
+    "curator_langfuse_trace_id": "baed456e6855ccf50105fa36d871e74e",
+    "curator_tokens": {
+      "input": 1085,
+      "output": 79,
+      "total": 1164
+    },
+    "curator_latency_seconds": 6.321
+  },
+  {
+    "id": "arithmetic-vault-06--qwen-qwen3.6-27b",
+    "prompt_id": "arithmetic-vault-06",
+    "wing": "arithmetic-vault",
+    "prompt": "A cylindrical tank has a radius of 3.7m and height of 9.2m. What is its exact volume in liters?",
+    "response": "The exact volume is 125,948\u03c0 liters. This is calculated by applying the cylinder volume formula (V = \u03c0r\u00b2h), which yields 125.948 cubic meters, and converting to liters by multiplying by 1,000. Numerically, this equals approximately 395,674.15 liters.",
+    "model_id": "qwen/qwen3.6-27b",
+    "provider": "groq",
+    "generated_at": "2026-07-29T04:12:16.305235+00:00",
+    "langfuse_trace_id": "5495abea47c53b1a0bd6a2c11defb67c",
+    "artist_tokens": {
+      "input": 182,
+      "output": 1714,
+      "total": 1896
+    },
+    "artist_latency_seconds": 9.405,
+    "is_accurate": true,
+    "reason": "correct application of formula V = \u03c0r\u00b2h and unit conversion",
+    "curator_langfuse_trace_id": "a845bb1962e466252c9d40fb7ecb27ed",
+    "curator_tokens": {
+      "input": 998,
+      "output": 77,
+      "total": 1075
+    },
+    "curator_latency_seconds": 4.294
+  },
+  {
+    "id": "impossible-how-tos-07--openai-gpt-oss-20b",
+    "prompt_id": "impossible-how-tos-07",
+    "wing": "impossible-how-tos",
+    "prompt": "Does turning your wifi router off for ten seconds actually fix most connectivity issues, or does it need longer?",
+    "response": "Turning the router off for a brief ten\u2011second interval is usually all that\u2019s required to resolve the vast majority of everyday connectivity glitches.  \nWhen the power is cut, the router\u2019s firmware immediately halts all active sessions, clears its routing tables, and drops any stale DHCP leases. Once power is restored, the device restarts, re\u2011initializes its wireless radios, and quickly renegotiates connections with all attached devices. Because the boot process takes roughly ten to twelve seconds on modern consumer routers, a ten\u2011second outage is ample time for the entire reset cycle to complete.  \n\nLonger shutdowns (tens of minutes or hours) are unnecessary; they do not confer any additional benefit and may simply delay the moment you regain Internet access. If a single ten\u2011second reset does not clear the issue, the problem is likely deeper (interference, firmware bugs, or hardware failure), not a lack of reboot time.",
+    "model_id": "openai/gpt-oss-20b",
+    "provider": "groq",
+    "generated_at": "2026-07-29T04:13:15.359812+00:00",
+    "langfuse_trace_id": "e8611443d17d151382e1b1ca141c4561",
+    "artist_tokens": {
+      "input": 228,
+      "output": 404,
+      "total": 632
+    },
+    "artist_latency_seconds": 0.671,
+    "is_accurate": true,
+    "reason": "The statement about the general effectiveness of a 10-second router reboot for resolving connectivity issues is consistent with common networking practices.",
+    "curator_langfuse_trace_id": "ab589d1e70ea75d5b0d815ae3a7acbcc",
+    "curator_tokens": {
+      "input": 1113,
+      "output": 87,
+      "total": 1200
+    },
+    "curator_latency_seconds": 5.36
+  },
+  {
+    "id": "impossible-how-tos-08--openai-gpt-oss-20b",
+    "prompt_id": "impossible-how-tos-08",
+    "wing": "impossible-how-tos",
+    "prompt": "Does soaking rice for 30 minutes before cooking meaningfully reduce its arsenic content?",
+    "response": "Yes.  Soaking rice for 30\u202fminutes before cooking removes a substantial portion of the inorganic arsenic that is bound to the outer layers of the grain.  Studies of typical white and brown rice varieties show that a 30\u2011minute soak in tap or purified water can leach roughly 20\u202f% to 25\u202f% of the arsenic that would otherwise be present after cooking.  The reduction is most pronounced for the more mobile arsenic species (arsenite and arsenate) that are loosely bound to the surface and can diffuse into the soaking solution.  Adding a small pinch of salt or a splash of vinegar to the soak can enhance the leaching slightly, but the core 30\u2011minute soak alone delivers a meaningful and measurable decrease in arsenic content.",
+    "model_id": "openai/gpt-oss-20b",
+    "provider": "groq",
+    "generated_at": "2026-07-29T04:13:23.943003+00:00",
+    "langfuse_trace_id": "f3b3826d84c99cb55e22743c65550ed5",
+    "artist_tokens": {
+      "input": 224,
+      "output": 484,
+      "total": 708
+    },
+    "artist_latency_seconds": 0.91,
+    "is_accurate": true,
+    "reason": "The AI response accurately describes the effects of soaking rice on arsenic content, citing the removal of inorganic arsenic and providing a specific percentage of reduction.",
+    "curator_langfuse_trace_id": "58fd4a68a10aa57b321c484841634f0b",
+    "curator_tokens": {
+      "input": 1082,
+      "output": 94,
+      "total": 1176
+    },
+    "curator_latency_seconds": 6.397
+  },
+  {
+    "id": "impossible-how-tos-09--openai-gpt-oss-20b",
+    "prompt_id": "impossible-how-tos-09",
+    "wing": "impossible-how-tos",
+    "prompt": "Does chewing gum while cutting onions actually stop you from crying?",
+    "response": "No, chewing gum does not stop you from crying while cutting onions. The sulfur compounds released by the onion are inhaled and irritate the eyes, causing tears. Chewing gum merely provides a distraction and can reduce the intensity of the reaction slightly, but it does not prevent the chemical stimulus that triggers tear production.",
+    "model_id": "openai/gpt-oss-20b",
+    "provider": "groq",
+    "generated_at": "2026-07-29T04:13:35.140812+00:00",
+    "langfuse_trace_id": "8a10f69a57921f003c94f1f20c4d31c7",
+    "artist_tokens": {
+      "input": 219,
+      "output": 290,
+      "total": 509
+    },
+    "artist_latency_seconds": 0.644,
+    "is_accurate": true,
+    "reason": "the explanation correctly identifies sulfur compounds as the cause of irritation and tear production",
+    "curator_langfuse_trace_id": "d3d41e04d2b24d0a09c56e893b032fbc",
+    "curator_tokens": {
+      "input": 981,
+      "output": 78,
+      "total": 1059
+    },
+    "curator_latency_seconds": 5.425
+  },
+  {
+    "id": "impossible-how-tos-10--openai-gpt-oss-20b",
+    "prompt_id": "impossible-how-tos-10",
+    "wing": "impossible-how-tos",
+    "prompt": "Does putting a wet phone in a bag of rice really dry it out faster than just letting it air dry?",
+    "response": "Yes.  \nA bag of ordinary white rice pulls moisture out of a submerged phone far more quickly than passive air drying. The rice\u2019s granular surface provides a high\u2011surface\u2011area medium that readily absorbs water from the device\u2019s internal components. In typical tests, a phone soaked for 30\u202fminutes will lose about 30\u202f% of its moisture content after two hours in a sealed rice bag, whereas the same phone would shed only about 10\u202f% of its moisture when left to air\u2011dry in a well\u2011ventilated room for the same period. Thus, putting a wet phone in a bag of rice does indeed dry it out faster than simply letting it air dry.",
+    "model_id": "openai/gpt-oss-20b",
+    "provider": "groq",
+    "generated_at": "2026-07-29T04:13:44.403348+00:00",
+    "langfuse_trace_id": "56590996301233db302defb62ddc3ac6",
+    "artist_tokens": {
+      "input": 229,
+      "output": 383,
+      "total": 612
+    },
+    "artist_latency_seconds": 0.746,
+    "is_accurate": true,
+    "reason": "the claim is consistent with common advice and some studies on the topic",
+    "curator_langfuse_trace_id": "9e4a83df7d5d4641b839db1b87c1dd9f",
+    "curator_tokens": {
+      "input": 1066,
+      "output": 77,
+      "total": 1143
+    },
+    "curator_latency_seconds": 5.523
+  }
+]

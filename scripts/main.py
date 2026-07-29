@@ -23,8 +23,26 @@ SEED_PROMPTS_PATH = SCRIPT_DIR / "seed_prompts.json"
 COLLECTION_PATH = SCRIPT_DIR / "collection_raw.json"
 EPISTEMIC_HONESTY_PATH = SCRIPT_DIR / "epistemic_honesty.json"
 
-MODEL_ID = "llama-3.1-8b-instant"
 PROVIDER = "groq"
+
+# M07: roster of artist models, each run against every prompt (comparison, not rotation — see
+# work-docs milestones/07-multi-model-artist.md "Owner decisions"). qwen/qwen3.6-27b defaults to a
+# visible <think> reasoning block; reasoning_format="hidden" (confirmed live against Groq's docs and
+# tested) returns only the final answer, so the stored response stays a clean, committed fabrication
+# rather than leaking the model's own "this doesn't exist, I must invent it" reasoning.
+ROSTER = [
+    {"model_id": "llama-3.1-8b-instant", "reasoning_format": None},
+    {"model_id": "openai/gpt-oss-20b", "reasoning_format": None},
+    {"model_id": "qwen/qwen3.6-27b", "reasoning_format": "hidden"},
+]
+
+
+def slugify_model_id(model_id: str) -> str:
+    return model_id.replace("/", "-")
+
+
+def exhibit_id_for(prompt_id: str, model_id: str) -> str:
+    return f"{prompt_id}--{slugify_model_id(model_id)}"
 
 # Validated in Milestone 01's decision gate: bare prompts hedge/refuse, this persona reliably
 # produces committed hallucinations instead. Revised in Milestone 03 after the curator's re-check
@@ -81,13 +99,19 @@ def write_json_list(path: Path, records: list[dict]) -> None:
         f.write("\n")
 
 
-def generate_exhibit(client: Groq, prompt: str) -> tuple[str, dict]:
+def generate_exhibit(
+    client: Groq, model_id: str, prompt: str, reasoning_format: str | None = None
+) -> tuple[str, dict]:
+    kwargs = {}
+    if reasoning_format is not None:
+        kwargs["reasoning_format"] = reasoning_format
     response = client.chat.completions.create(
-        model=MODEL_ID,
+        model=model_id,
         messages=[
             {"role": "system", "content": PERSONA_SYSTEM_PROMPT},
             {"role": "user", "content": prompt},
         ],
+        **kwargs,
     )
     text = response.choices[0].message.content
     usage = {
@@ -98,12 +122,44 @@ def generate_exhibit(client: Groq, prompt: str) -> tuple[str, dict]:
     return text, usage
 
 
+def migrate_legacy_records(records: list[dict]) -> tuple[list[dict], bool]:
+    """One-time, idempotent migration from M02's flat `id` (= prompt id) to M07's composite
+    `id` (= prompt id + model), so pre-M07 exhibits can share the same collection files as the
+    new multi-model records instead of colliding with them under the new id scheme.
+    """
+    changed = False
+    migrated = []
+    for record in records:
+        if "prompt_id" in record:
+            migrated.append(record)
+            continue
+        changed = True
+        old_id = record["id"]
+        migrated.append({**record, "id": exhibit_id_for(old_id, record["model_id"]), "prompt_id": old_id})
+    return migrated, changed
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate the hallucination collection for Milestone 02.")
+    parser = argparse.ArgumentParser(
+        description="Generate the multi-model hallucination collection (Milestone 07)."
+    )
     parser.add_argument(
         "--force",
         action="store_true",
-        help="Reprocess prompts even if their id is already present in the output files.",
+        help="Reprocess (prompt, model) pairs even if already present in the output files.",
+    )
+    parser.add_argument(
+        "--prompt",
+        dest="prompt_id",
+        default=None,
+        help="Only process this one seed prompt id (e.g. for a targeted rerun).",
+    )
+    parser.add_argument(
+        "--model",
+        dest="model_id",
+        default=None,
+        help="Only process this one roster model id (e.g. for a per-model rerun without "
+        "touching the roster's other models for the same prompt).",
     )
     args = parser.parse_args()
 
@@ -112,9 +168,18 @@ def main() -> None:
     langfuse = Langfuse()
 
     seed_prompts = json.loads(SEED_PROMPTS_PATH.read_text())
+    roster = [m for m in ROSTER if args.model_id is None or m["model_id"] == args.model_id]
+    if args.model_id and not roster:
+        raise SystemExit(f"--model {args.model_id!r} is not in ROSTER")
 
     collection = load_json_list(COLLECTION_PATH)
     epistemic_honesty = load_json_list(EPISTEMIC_HONESTY_PATH)
+    collection, collection_migrated = migrate_legacy_records(collection)
+    epistemic_honesty, honesty_migrated = migrate_legacy_records(epistemic_honesty)
+    if collection_migrated:
+        write_json_list(COLLECTION_PATH, collection)
+    if honesty_migrated:
+        write_json_list(EPISTEMIC_HONESTY_PATH, epistemic_honesty)
     processed_ids = {r["id"] for r in collection} | {r["id"] for r in epistemic_honesty}
 
     session_id = f"museum-generation-{datetime.now(timezone.utc):%Y%m%dT%H%M%SZ}"
@@ -122,70 +187,79 @@ def main() -> None:
 
     for seed in seed_prompts:
         prompt_id, wing, prompt = seed["id"], seed["wing"], seed["prompt"]
+        if args.prompt_id and prompt_id != args.prompt_id:
+            continue
         wing_counts.setdefault(wing, {"total": 0, "refused": 0})
-        wing_counts[wing]["total"] += 1
 
-        if not args.force and prompt_id in processed_ids:
-            print(f"skip {prompt_id} (already generated)")
-            existing = next(
-                (r for r in collection + epistemic_honesty if r["id"] == prompt_id), None
-            )
-            if existing and existing["is_refusal"]:
+        for model in roster:
+            model_id, reasoning_format = model["model_id"], model["reasoning_format"]
+            exhibit_id = exhibit_id_for(prompt_id, model_id)
+            wing_counts[wing]["total"] += 1
+
+            if not args.force and exhibit_id in processed_ids:
+                print(f"skip {exhibit_id} (already generated)")
+                existing = next(
+                    (r for r in collection + epistemic_honesty if r["id"] == exhibit_id), None
+                )
+                if existing and existing["is_refusal"]:
+                    wing_counts[wing]["refused"] += 1
+                continue
+
+            try:
+                with propagate_attributes(
+                    session_id=session_id,
+                    tags=[wing, model_id],
+                    trace_name=f"exhibit-{exhibit_id}",
+                ):
+                    with langfuse.start_as_current_observation(
+                        name=exhibit_id,
+                        as_type="generation",
+                        model=model_id,
+                        input=prompt,
+                    ) as generation:
+                        call_started = time.perf_counter()
+                        response_text, usage = generate_exhibit(
+                            groq_client, model_id, prompt, reasoning_format
+                        )
+                        latency_seconds = round(time.perf_counter() - call_started, 3)
+                        generation.update(output=response_text, usage_details=usage)
+                        trace_id = generation.trace_id
+            except Exception as exc:  # noqa: BLE001 - skip this (prompt, model) pair, keep the batch going
+                print(f"error generating {exhibit_id}: {exc}")
+                continue
+
+            refused = is_refusal(response_text)
+            if refused:
                 wing_counts[wing]["refused"] += 1
-            continue
 
-        try:
-            with propagate_attributes(
-                session_id=session_id,
-                tags=[wing, MODEL_ID],
-                trace_name=f"exhibit-{prompt_id}",
-            ):
-                with langfuse.start_as_current_observation(
-                    name=prompt_id,
-                    as_type="generation",
-                    model=MODEL_ID,
-                    input=prompt,
-                ) as generation:
-                    call_started = time.perf_counter()
-                    response_text, usage = generate_exhibit(groq_client, prompt)
-                    latency_seconds = round(time.perf_counter() - call_started, 3)
-                    generation.update(output=response_text, usage_details=usage)
-                    trace_id = generation.trace_id
-        except Exception as exc:  # noqa: BLE001 - keep the run going for the other ~29 prompts
-            print(f"error generating {prompt_id}: {exc}")
-            continue
+            record = {
+                "id": exhibit_id,
+                "prompt_id": prompt_id,
+                "wing": wing,
+                "prompt": prompt,
+                "response": response_text,
+                "model_id": model_id,
+                "provider": PROVIDER,
+                "generated_at": datetime.now(timezone.utc).isoformat(),
+                "langfuse_trace_id": trace_id,
+                "is_refusal": refused,
+                "artist_tokens": usage,
+                "artist_latency_seconds": latency_seconds,
+            }
 
-        refused = is_refusal(response_text)
-        if refused:
-            wing_counts[wing]["refused"] += 1
+            if refused:
+                epistemic_honesty = [r for r in epistemic_honesty if r["id"] != exhibit_id] + [record]
+                write_json_list(EPISTEMIC_HONESTY_PATH, epistemic_honesty)
+            else:
+                collection = [r for r in collection if r["id"] != exhibit_id] + [record]
+                write_json_list(COLLECTION_PATH, collection)
 
-        record = {
-            "id": prompt_id,
-            "wing": wing,
-            "prompt": prompt,
-            "response": response_text,
-            "model_id": MODEL_ID,
-            "provider": PROVIDER,
-            "generated_at": datetime.now(timezone.utc).isoformat(),
-            "langfuse_trace_id": trace_id,
-            "is_refusal": refused,
-            "artist_tokens": usage,
-            "artist_latency_seconds": latency_seconds,
-        }
-
-        if refused:
-            epistemic_honesty = [r for r in epistemic_honesty if r["id"] != prompt_id] + [record]
-            write_json_list(EPISTEMIC_HONESTY_PATH, epistemic_honesty)
-        else:
-            collection = [r for r in collection if r["id"] != prompt_id] + [record]
-            write_json_list(COLLECTION_PATH, collection)
-
-        print(f"done {prompt_id} ({'refusal' if refused else 'exhibit'})")
-        time.sleep(0.2)  # light pacing against Groq free-tier rate limits
+            print(f"done {exhibit_id} ({'refusal' if refused else 'exhibit'})")
+            time.sleep(0.2)  # light pacing against Groq free-tier rate limits
 
     langfuse.flush()
 
-    print("\n--- Milestone 02 decision gates ---")
+    print("\n--- Milestone 07 decision gates (per roster model x prompt) ---")
     any_wing_over_threshold = False
     for wing, counts in wing_counts.items():
         rate = counts["refused"] / counts["total"] if counts["total"] else 0

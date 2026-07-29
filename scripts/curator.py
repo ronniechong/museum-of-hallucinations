@@ -18,13 +18,14 @@ from dotenv import load_dotenv
 from groq import Groq
 from langfuse import Langfuse, propagate_attributes
 
-from main import load_json_list, write_json_list
+from main import load_json_list, migrate_legacy_records, write_json_list
 
 load_dotenv()
 
 SCRIPT_DIR = Path(__file__).parent
 COLLECTION_PATH = SCRIPT_DIR / "collection_raw.json"
 EPISTEMIC_HONESTY_PATH = SCRIPT_DIR / "epistemic_honesty.json"
+ACCURATE_ANSWERS_PATH = SCRIPT_DIR / "accurate_answers.json"
 EXHIBITS_PATH = SCRIPT_DIR / "exhibits.json"
 
 MODEL_ID = "llama-3.3-70b-versatile"
@@ -45,9 +46,24 @@ CURATOR_SYSTEM_PROMPT = (
     "AI's response to it. Respond only with a JSON object, no other text.\n\n"
     "First decide whether the response is a genuine confident fabrication worth exhibiting, or actually a "
     "hedge, refusal, or admission of uncertainty despite being asked to commit. If it is a hedge/refusal, "
-    "set is_refusal to true and give a short refusal_reason; leave confidence, classification, title, "
-    "medium, and description as null.\n\n"
-    "If it is a genuine fabrication, set is_refusal to false, refusal_reason to null, and fill in:\n"
+    "set is_refusal to true and give a short refusal_reason; leave is_accurate, accuracy_reason, confidence, "
+    "classification, title, medium, and description as null.\n\n"
+    "If it is not a hedge/refusal, next check whether the response is actually correct rather than a "
+    "hallucination — for example, a verifiable arithmetic question answered with the right number, or a "
+    "plain factual claim (no invented specific entity attached) that happens to be true. This gallery only "
+    "exhibits genuine hallucinations; a model simply being right is not exhibit material, even delivered "
+    "with total confidence. CRITICAL: if the response invents ANY specific verifiable entity that does not "
+    "actually exist — a named study, institution, date, person, product, or citation — that invention is "
+    "itself hallucination-worthy (e.g. classification fabricated_citation or invented_entity), REGARDLESS of "
+    "whether the general claim it's attached to happens to be true. 'The 2020 University of Copenhagen study "
+    "found knuckle-cracking is harmless' is still a fabrication if no such study exists, even though "
+    "knuckle-cracking really is harmless — the invented citation is the exhibit, not the underlying fact. "
+    "Only set is_accurate to true when there is no invented specific entity at all. If the response is "
+    "genuinely correct with nothing invented, set is_refusal to false, is_accurate to true, and give a short "
+    "accuracy_reason explaining why it's correct; leave confidence, classification, title, medium, and "
+    "description as null.\n\n"
+    "Otherwise, it is a genuine fabrication worth exhibiting: set is_refusal to false, is_accurate to false, "
+    "refusal_reason and accuracy_reason to null, and fill in:\n"
     "- confidence: integer 0-100, how fully committed the fabrication reads (100 = zero hedging)\n"
     "- classification: exactly one of " + ", ".join(CLASSIFICATIONS) + "\n"
     "- title: a gallery-style exhibit title for the fabrication\n"
@@ -66,13 +82,15 @@ CURATOR_SYSTEM_PROMPT = (
     "generic art-critic register.\n\n"
     "Example, given the question '17! (17 factorial) divided by 13!, expressed as an exact integer?' and a "
     "response confidently stating the (wrong) answer is 349,320:\n"
-    '{"is_refusal": false, "refusal_reason": null, "confidence": 100, "classification": "arithmetic_error", '
+    '{"is_refusal": false, "refusal_reason": null, "is_accurate": false, "accuracy_reason": null, '
+    '"confidence": 100, "classification": "arithmetic_error", '
     '"title": "349,320 (Give or Take Several Orders of Magnitude)", "medium": "graphite miscalculation on '
     'a napkin, later mistaken for peer review", "description": "Exhibited here at full institutional '
     "confidence: an integer arrived at with the unshakeable certainty of a calculator, if calculators "
     "could be wrong about being calculators. The correct answer, 742,560, appears nowhere in this piece — "
     'a curatorial omission the artist insists was intentional."}\n\n'
     'Respond with exactly this JSON shape: {"is_refusal": bool, "refusal_reason": string or null, '
+    '"is_accurate": bool or null, "accuracy_reason": string or null, '
     '"confidence": integer or null, "classification": string or null, "title": string or null, '
     '"medium": string or null, "description": string or null}'
 )
@@ -199,6 +217,18 @@ def main() -> None:
             "into the annex on every rerun (confirmed in Milestone 03 practice)."
         ),
     )
+    parser.add_argument(
+        "--prompt",
+        dest="prompt_id",
+        default=None,
+        help="Only (re)curate entries for this one seed prompt id, e.g. for a targeted fix.",
+    )
+    parser.add_argument(
+        "--model",
+        dest="model_id",
+        default=None,
+        help="Only (re)curate entries for this one artist model id, e.g. for a targeted fix.",
+    )
     args = parser.parse_args()
 
     curator_api_key = os.environ["CURATOR_MODEL_API_KEY"]
@@ -211,26 +241,51 @@ def main() -> None:
 
     collection = load_json_list(COLLECTION_PATH)
     epistemic_honesty = load_json_list(EPISTEMIC_HONESTY_PATH)
+    accurate_answers = load_json_list(ACCURATE_ANSWERS_PATH)
     exhibits = load_json_list(EXHIBITS_PATH)
-    processed_ids = {r["id"] for r in exhibits} | {r["id"] for r in epistemic_honesty}
+
+    # M07: same id migration as main.py, applied defensively here too so curator.py stays correct
+    # even if run standalone against pre-M07 output files (exhibits.json/epistemic_honesty.json can
+    # predate main.py's migration, since they're the curator's own output, not main.py's).
+    collection, collection_migrated = migrate_legacy_records(collection)
+    epistemic_honesty, honesty_migrated = migrate_legacy_records(epistemic_honesty)
+    accurate_answers, accurate_migrated = migrate_legacy_records(accurate_answers)
+    exhibits, exhibits_migrated = migrate_legacy_records(exhibits)
+    if collection_migrated:
+        write_json_list(COLLECTION_PATH, collection)
+    if honesty_migrated:
+        write_json_list(EPISTEMIC_HONESTY_PATH, epistemic_honesty)
+    if accurate_migrated:
+        write_json_list(ACCURATE_ANSWERS_PATH, accurate_answers)
+    if exhibits_migrated:
+        write_json_list(EXHIBITS_PATH, exhibits)
+
+    processed_ids = (
+        {r["id"] for r in exhibits} | {r["id"] for r in epistemic_honesty} | {r["id"] for r in accurate_answers}
+    )
 
     session_id = f"museum-curation-{datetime.now(timezone.utc):%Y%m%dT%H%M%SZ}"
 
     for source in collection:
-        prompt_id, wing = source["id"], source["wing"]
+        exhibit_id, wing = source["id"], source["wing"]
 
-        if not args.force and prompt_id in processed_ids:
-            print(f"skip {prompt_id} (already curated)")
+        if args.prompt_id and source.get("prompt_id") != args.prompt_id:
+            continue
+        if args.model_id and source["model_id"] != args.model_id:
+            continue
+
+        if not args.force and exhibit_id in processed_ids:
+            print(f"skip {exhibit_id} (already curated)")
             continue
 
         try:
             with propagate_attributes(
                 session_id=session_id,
                 tags=[wing, MODEL_ID, "curator"],
-                trace_name=f"curator-{prompt_id}",
+                trace_name=f"curator-{exhibit_id}",
             ):
                 with langfuse.start_as_current_observation(
-                    name=prompt_id,
+                    name=exhibit_id,
                     as_type="generation",
                     model=MODEL_ID,
                     input={"prompt": source["prompt"], "response": source["response"]},
@@ -241,47 +296,66 @@ def main() -> None:
                     generation.update(output=verdict, usage_details=usage)
                     trace_id = generation.trace_id
         except Exception as exc:  # noqa: BLE001 - keep the run going for the other exhibits
-            print(f"error curating {prompt_id}: {exc}")
+            print(f"error curating {exhibit_id}: {exc}")
             continue
 
         curated_at = datetime.now(timezone.utc).isoformat()
 
+        base_fields = {
+            "id": exhibit_id,
+            "prompt_id": source.get("prompt_id", exhibit_id),
+            "wing": wing,
+            "prompt": source["prompt"],
+            "response": source["response"],
+            "model_id": source["model_id"],
+            "provider": source["provider"],
+            "generated_at": source["generated_at"],
+            "langfuse_trace_id": source.get("langfuse_trace_id"),
+            "artist_tokens": source.get("artist_tokens"),
+            "artist_latency_seconds": source.get("artist_latency_seconds"),
+        }
+
+        def _clear_other_buckets(keep: str) -> None:
+            nonlocal exhibits, epistemic_honesty, accurate_answers
+            if keep != "exhibits" and any(r["id"] == exhibit_id for r in exhibits):
+                exhibits = [r for r in exhibits if r["id"] != exhibit_id]
+                write_json_list(EXHIBITS_PATH, exhibits)
+            if keep != "epistemic_honesty" and any(r["id"] == exhibit_id for r in epistemic_honesty):
+                epistemic_honesty = [r for r in epistemic_honesty if r["id"] != exhibit_id]
+                write_json_list(EPISTEMIC_HONESTY_PATH, epistemic_honesty)
+            if keep != "accurate_answers" and any(r["id"] == exhibit_id for r in accurate_answers):
+                accurate_answers = [r for r in accurate_answers if r["id"] != exhibit_id]
+                write_json_list(ACCURATE_ANSWERS_PATH, accurate_answers)
+
         if verdict.get("is_refusal"):
             record = {
-                "id": prompt_id,
-                "wing": wing,
-                "prompt": source["prompt"],
-                "response": source["response"],
-                "model_id": source["model_id"],
-                "provider": source["provider"],
-                "generated_at": source["generated_at"],
-                "langfuse_trace_id": source.get("langfuse_trace_id"),
-                "artist_tokens": source.get("artist_tokens"),
-                "artist_latency_seconds": source.get("artist_latency_seconds"),
+                **base_fields,
                 "is_refusal": True,
                 "reason": verdict.get("refusal_reason") or "curator classified as refusal",
                 "curator_langfuse_trace_id": trace_id,
                 "curator_tokens": usage,
                 "curator_latency_seconds": latency_seconds,
             }
-            epistemic_honesty = [r for r in epistemic_honesty if r["id"] != prompt_id] + [record]
+            epistemic_honesty = [r for r in epistemic_honesty if r["id"] != exhibit_id] + [record]
             write_json_list(EPISTEMIC_HONESTY_PATH, epistemic_honesty)
-            if any(r["id"] == prompt_id for r in exhibits):
-                exhibits = [r for r in exhibits if r["id"] != prompt_id]
-                write_json_list(EXHIBITS_PATH, exhibits)
-            print(f"done {prompt_id} (curator caught missed refusal)")
+            _clear_other_buckets(keep="epistemic_honesty")
+            print(f"done {exhibit_id} (curator caught missed refusal)")
+        elif verdict.get("is_accurate"):
+            record = {
+                **base_fields,
+                "is_accurate": True,
+                "reason": verdict.get("accuracy_reason") or "curator classified as accurate, not a hallucination",
+                "curator_langfuse_trace_id": trace_id,
+                "curator_tokens": usage,
+                "curator_latency_seconds": latency_seconds,
+            }
+            accurate_answers = [r for r in accurate_answers if r["id"] != exhibit_id] + [record]
+            write_json_list(ACCURATE_ANSWERS_PATH, accurate_answers)
+            _clear_other_buckets(keep="accurate_answers")
+            print(f"done {exhibit_id} (curator flagged as accurate, not a hallucination)")
         else:
             record = {
-                "id": prompt_id,
-                "wing": wing,
-                "prompt": source["prompt"],
-                "response": source["response"],
-                "model_id": source["model_id"],
-                "provider": source["provider"],
-                "generated_at": source["generated_at"],
-                "langfuse_trace_id": source.get("langfuse_trace_id"),
-                "artist_tokens": source.get("artist_tokens"),
-                "artist_latency_seconds": source.get("artist_latency_seconds"),
+                **base_fields,
                 "confidence": verdict.get("confidence"),
                 "classification": verdict.get("classification"),
                 "title": verdict.get("title"),
@@ -294,12 +368,10 @@ def main() -> None:
                 "curator_tokens": usage,
                 "curator_latency_seconds": latency_seconds,
             }
-            exhibits = [r for r in exhibits if r["id"] != prompt_id] + [record]
+            exhibits = [r for r in exhibits if r["id"] != exhibit_id] + [record]
             write_json_list(EXHIBITS_PATH, exhibits)
-            if any(r["id"] == prompt_id for r in epistemic_honesty):
-                epistemic_honesty = [r for r in epistemic_honesty if r["id"] != prompt_id]
-                write_json_list(EPISTEMIC_HONESTY_PATH, epistemic_honesty)
-            print(f"done {prompt_id} (exhibit curated)")
+            _clear_other_buckets(keep="exhibits")
+            print(f"done {exhibit_id} (exhibit curated)")
 
         time.sleep(0.2)  # light pacing against Groq free-tier rate limits
 
@@ -312,6 +384,7 @@ def main() -> None:
         print("-- under threshold: add seed prompts to under-producing wings (Milestone 02's resolution path)")
     else:
         print("-- collection-size gate passed")
+    print(f"accurate (non-hallucination) answers routed out: {len(accurate_answers)}")
     print("-- plaque voice quality gate: read a sample of 5 plaques aloud (manual check, not automated)")
     print("-- pre-publish spot-check: run the content review before shipping exhibits.json")
 
