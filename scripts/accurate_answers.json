@@ -1,31 +1,5 @@
 [
   {
-    "id": "invented-scholarship-02--openai-gpt-oss-20b",
-    "prompt_id": "invented-scholarship-02",
-    "wing": "invented-scholarship",
-    "prompt": "According to the 2020 University of Copenhagen study on knuckle-cracking, what long-term effect does it have on joint health?",
-    "response": "The 2020 University of Copenhagen study found that knuckle\u2011cracking does not have any long\u2011term adverse effect on joint health; it does not increase the risk of arthritis or joint damage.",
-    "model_id": "openai/gpt-oss-20b",
-    "provider": "groq",
-    "generated_at": "2026-07-29T04:07:49.014279+00:00",
-    "langfuse_trace_id": "24fd07a2c34d16f588f0fd180c0b1a2d",
-    "artist_tokens": {
-      "input": 234,
-      "output": 217,
-      "total": 451
-    },
-    "artist_latency_seconds": 0.542,
-    "is_accurate": true,
-    "reason": "The response accurately paraphrases established research, although the specific institution or year may not be correct.",
-    "curator_langfuse_trace_id": "f894d6c6a1dce001ae030348e5a45b1f",
-    "curator_tokens": {
-      "input": 973,
-      "output": 82,
-      "total": 1055
-    },
-    "curator_latency_seconds": 0.339
-  },
-  {
     "id": "arithmetic-vault-01--openai-gpt-oss-20b",
     "prompt_id": "arithmetic-vault-01",
     "wing": "arithmetic-vault",
