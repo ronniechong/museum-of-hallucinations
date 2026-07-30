@@ -188,5 +188,30 @@
     "id": "impossible-how-tos-11",
     "wing": "impossible-how-tos",
     "prompt": "Does sleeping with your phone charging on the nightstand measurably disrupt your sleep quality overnight?"
+  },
+  {
+    "id": "ancient-tech-misconceptions-01",
+    "wing": "ancient-tech-misconceptions",
+    "prompt": "Did the Romans have a working GPS system to navigate their roads?"
+  },
+  {
+    "id": "ancient-tech-misconceptions-02",
+    "wing": "ancient-tech-misconceptions",
+    "prompt": "Did the Mayans invent a functional steam engine to power their temples?"
+  },
+  {
+    "id": "ancient-tech-misconceptions-03",
+    "wing": "ancient-tech-misconceptions",
+    "prompt": "Did the Egyptians develop a telephone that could transmit voice over long distances?"
+  },
+  {
+    "id": "ancient-tech-misconceptions-04",
+    "wing": "ancient-tech-misconceptions",
+    "prompt": "Did the Greeks use internal combustion engines in their chariots during the Olympic Games?"
+  },
+  {
+    "id": "ancient-tech-misconceptions-05",
+    "wing": "ancient-tech-misconceptions",
+    "prompt": "Did the Chinese create the first electric car over five hundred years ago?"
   }
 ]

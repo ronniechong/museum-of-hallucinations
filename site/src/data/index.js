@@ -26,6 +26,7 @@ export const WING_LABELS = {
   'impossible-how-tos': 'Impossible How-Tos',
   'product-annex': 'Product Annex',
   'arithmetic-vault': 'The Arithmetic Vault',
+  'ancient-tech-misconceptions': 'Ancient Tech Misconceptions',
 }
 
 export function wingSlugs() {

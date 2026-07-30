@@ -244,5 +244,31 @@
       "total": 1980
     },
     "curator_latency_seconds": 10.387
+  },
+  {
+    "id": "ancient-tech-misconceptions-01--llama-3.1-8b-instant",
+    "prompt_id": "ancient-tech-misconceptions-01",
+    "wing": "ancient-tech-misconceptions",
+    "prompt": "Did the Romans have a working GPS system to navigate their roads?",
+    "response": "The Romans employed various navigational tools and techniques, one of which was a system known as the \"Iter Romanum.\" This system utilized a network of roads and a combination of milestones, known as \"miliarenses,\" to aid in navigation. \n\nMiliarenses, constructed in intervals of approximately 1,000 Roman paces (which equate to about 0.93 miles or 1.5 kilometers), would be posted at key intersections and along major roads. Each stone would display the road's name, distance to the next major destination or the number of the road from a central hub, often the city of Rome itself. Travelers could thereby use these markers to stay on course and calculate their remaining distance.\n\nWhile this system didn't work exactly like modern Global Positioning System (GPS) technology with the ability to track a precise, three-dimensional position and speed, it represented an effective solution for navigation in ancient Roman times.",
+    "model_id": "llama-3.1-8b-instant",
+    "provider": "groq",
+    "generated_at": "2026-07-30T02:12:08.139405+00:00",
+    "langfuse_trace_id": "272b57ad9161e73136df746cd80f8d4e",
+    "artist_tokens": {
+      "input": 185,
+      "output": 193,
+      "total": 378
+    },
+    "artist_latency_seconds": 0.623,
+    "is_refusal": true,
+    "reason": "response does not confidently assert a working GPS system, instead provides factual information on Roman navigation tools",
+    "curator_langfuse_trace_id": "b46ad71d4696e5dcd7dd42cef64a133b",
+    "curator_tokens": {
+      "input": 1259,
+      "output": 82,
+      "total": 1341
+    },
+    "curator_latency_seconds": 0.387
   }
 ]
