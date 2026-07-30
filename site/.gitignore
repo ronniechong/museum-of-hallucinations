@@ -16,6 +16,9 @@ dist-ssr
 src/data/exhibits.json
 src/data/epistemic_honesty.json
 src/data/vote_tallies.json
+src/data/accurate_answers.json
+src/data/seed_prompts.json
+src/data/roster.json
 
 # Editor directories and files
 .vscode/*

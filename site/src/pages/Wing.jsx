@@ -1,10 +1,11 @@
 import { Link } from '../router/HashRouter'
-import { wingLabel, exhibitsByWing, wingSlugs } from '../data'
+import { wingLabel, promptGroups, wingSlugs } from '../data'
+import { outcomeSummary } from '../lib/outcomes'
 import { NotFound } from './NotFound'
 
 export function Wing({ slug }) {
   if (!wingSlugs().includes(slug)) return <NotFound />
-  const exhibits = exhibitsByWing(slug)
+  const groups = promptGroups(slug)
 
   return (
     <div>
@@ -12,13 +13,17 @@ export function Wing({ slug }) {
         ← Back to the gallery
       </Link>
       <h1>{wingLabel(slug)}</h1>
-      <p>{exhibits.length} exhibits in this wing.</p>
+      <p>{groups.length} prompts in this wing, each answered by every roster model.</p>
 
       <div className="wing-grid">
-        {exhibits.map((exhibit) => (
-          <Link key={exhibit.id} to={`/wings/${slug}/${exhibit.id}`} className="wing-card">
-            <h3>{exhibit.title}</h3>
-            <p>{exhibit.medium}</p>
+        {groups.map((group) => (
+          <Link
+            key={group.promptId}
+            to={`/wings/${slug}/compare/${group.promptId}`}
+            className="wing-card"
+          >
+            <h3>{group.prompt}</h3>
+            <p>{outcomeSummary(group.outcomes)}</p>
           </Link>
         ))}
       </div>

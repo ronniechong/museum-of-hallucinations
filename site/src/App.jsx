@@ -3,6 +3,7 @@ import { Routes } from './router/Routes'
 import { Home } from './pages/Home'
 import { Wing } from './pages/Wing'
 import { Exhibit } from './pages/Exhibit'
+import { Compare } from './pages/Compare'
 import { Annex } from './pages/Annex'
 import { About } from './pages/About'
 import { NotFound } from './pages/NotFound'
@@ -67,6 +68,10 @@ function AppRoutes() {
         { pattern: '/annex', render: () => <Annex /> },
         { pattern: '/about', render: () => <About /> },
         { pattern: '/wings/:slug', render: ({ slug }) => <Wing slug={slug} /> },
+        {
+          pattern: '/wings/:slug/compare/:promptId',
+          render: ({ slug, promptId }) => <Compare slug={slug} promptId={promptId} />,
+        },
         {
           pattern: '/wings/:slug/:id',
           render: ({ slug, id }) => <Exhibit slug={slug} id={id} />,

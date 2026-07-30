@@ -47,7 +47,7 @@ function classificationLabel(classification) {
   )
 }
 
-export function Plaque({ exhibit, showResponse = true }) {
+export function Plaque({ exhibit, showResponse = true, showPrompt = true }) {
   const {
     id,
     title,
@@ -75,10 +75,12 @@ export function Plaque({ exhibit, showResponse = true }) {
         </div>
         <p className="plaque-description">{description}</p>
 
-        <div className="plaque-prompt">
-          <div className="plaque-eyebrow">The question posed</div>
-          <blockquote>&ldquo;{prompt}&rdquo;</blockquote>
-        </div>
+        {showPrompt && (
+          <div className="plaque-prompt">
+            <div className="plaque-eyebrow">The question posed</div>
+            <blockquote>&ldquo;{prompt}&rdquo;</blockquote>
+          </div>
+        )}
 
         {showResponse && (
           <div className="plaque-response">

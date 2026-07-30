@@ -22,6 +22,7 @@ SCRIPT_DIR = Path(__file__).parent
 SEED_PROMPTS_PATH = SCRIPT_DIR / "seed_prompts.json"
 COLLECTION_PATH = SCRIPT_DIR / "collection_raw.json"
 EPISTEMIC_HONESTY_PATH = SCRIPT_DIR / "epistemic_honesty.json"
+ROSTER_PATH = SCRIPT_DIR / "roster.json"
 
 PROVIDER = "groq"
 
@@ -162,6 +163,11 @@ def main() -> None:
         "touching the roster's other models for the same prompt).",
     )
     args = parser.parse_args()
+
+    # M09: single source of truth for roster display order, so the site never has to duplicate
+    # this list by hand — synced to site/src/data/ alongside the other output files. Always the
+    # full roster, independent of any --model filter applied to this particular invocation.
+    write_json_list(ROSTER_PATH, [m["model_id"] for m in ROSTER])
 
     artist_api_key = os.environ["ARTIST_MODEL_API_KEY"]
     groq_client = Groq(api_key=artist_api_key)

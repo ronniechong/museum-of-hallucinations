@@ -10,7 +10,7 @@
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "sync-data": "mkdir -p src/data && cp ../scripts/exhibits.json ../scripts/epistemic_honesty.json ../scripts/vote_tallies.json src/data/"
+    "sync-data": "mkdir -p src/data && cp ../scripts/seed_prompts.json ../scripts/exhibits.json ../scripts/epistemic_honesty.json ../scripts/accurate_answers.json ../scripts/vote_tallies.json ../scripts/roster.json src/data/"
   },
   "dependencies": {
     "react": "^19.2.7",

@@ -211,6 +211,12 @@ h3 {
   color: var(--plaque-text);
 }
 
+.outcome-card-missing {
+  background: var(--plaque-bg-alt);
+  color: var(--plaque-muted);
+  font-style: italic;
+}
+
 .plaque-eyebrow {
   font-size: 0.7rem;
   letter-spacing: 0.16em;

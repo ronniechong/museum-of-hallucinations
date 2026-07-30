@@ -1,10 +1,10 @@
 import { Link } from '../router/HashRouter'
-import { wingSlugs, wingLabel, exhibitsByWing, exhibitOfTheDay, honestyStats } from '../data'
-import { Plaque } from '../components/Plaque'
+import { wingSlugs, wingLabel, promptGroups, comparisonOfTheDay, honestyStats } from '../data'
+import { ComparisonGrid } from './Compare'
 
 export function Home() {
   const { exhibitCount, annexCount } = honestyStats()
-  const today = exhibitOfTheDay()
+  const today = comparisonOfTheDay()
 
   return (
     <div>
@@ -32,19 +32,22 @@ export function Home() {
         {wingSlugs().map((slug) => (
           <Link key={slug} to={`/wings/${slug}`} className="wing-card">
             <h3>{wingLabel(slug)}</h3>
-            <p>{exhibitsByWing(slug).length} exhibits</p>
+            <p>{promptGroups(slug).length} prompts</p>
           </Link>
         ))}
       </div>
 
       <div className="rope-divider" />
 
-      <h2>Exhibit of the Day</h2>
-      <div className="exhibit-grid" style={{ gridTemplateColumns: '1fr', maxWidth: 560 }}>
-        <Plaque exhibit={today} />
-      </div>
+      <h2>Comparison of the Day</h2>
+      <p style={{ textAlign: 'center', maxWidth: 720, margin: '0 auto' }}>
+        &ldquo;{today.prompt}&rdquo;
+      </p>
+      <ComparisonGrid group={today} />
       <p style={{ textAlign: 'center' }}>
-        <Link to={`/wings/${today.wing}/${today.id}`}>View this exhibit's wing →</Link>
+        <Link to={`/wings/${today.wing}/compare/${today.promptId}`}>
+          View this comparison in its wing →
+        </Link>
       </p>
     </div>
   )
