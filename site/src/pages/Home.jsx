@@ -1,6 +1,6 @@
 import { Link } from '../router/HashRouter'
 import { wingSlugs, wingLabel, promptGroups, comparisonOfTheDay, honestyStats } from '../data'
-import { ComparisonGrid } from './Compare'
+import { ComparisonGrid, PromptBlock } from './Compare'
 
 export function Home() {
   const { exhibitCount, annexCount } = honestyStats()
@@ -40,9 +40,7 @@ export function Home() {
       <div className="rope-divider" />
 
       <h2>Comparison of the Day</h2>
-      <p style={{ textAlign: 'center', maxWidth: 720, margin: '0 auto' }}>
-        &ldquo;{today.prompt}&rdquo;
-      </p>
+      <PromptBlock prompt={today.prompt} />
       <ComparisonGrid group={today} />
       <p style={{ textAlign: 'center' }}>
         <Link to={`/wings/${today.wing}/compare/${today.promptId}`}>

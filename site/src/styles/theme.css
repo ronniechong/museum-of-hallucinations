@@ -256,6 +256,18 @@ h3 {
   color: var(--plaque-muted);
 }
 
+/* .plaque-prompt is also used standalone directly on the dark page background (Compare/Home),
+   not just nested inside a light plaque card — plaque-muted is a dark brown tuned for the cream
+   plaque background and reads as low-contrast there, so this variant uses the page's own text
+   colors instead. */
+.plaque-prompt-standalone .plaque-eyebrow {
+  color: var(--text-muted);
+}
+
+.plaque-prompt-standalone blockquote {
+  color: var(--text-primary);
+}
+
 .plaque-response {
   border-top: 1px dashed var(--gilt-dark);
   padding-top: 1rem;
@@ -267,6 +279,29 @@ h3 {
   padding-left: 1rem;
   border-left: 3px solid var(--rope);
   font-style: italic;
+}
+
+.plaque-response-collapsed blockquote {
+  max-height: 8.4em;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+}
+
+.response-toggle {
+  display: inline-block;
+  margin-top: 0.6rem;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--plaque-muted);
+  font-size: 0.78rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.response-toggle:hover {
+  color: var(--plaque-text);
 }
 
 .materials-line {
@@ -455,7 +490,7 @@ h3 {
 
 .exhibit-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.75rem;
   margin-top: 1.5rem;
 }

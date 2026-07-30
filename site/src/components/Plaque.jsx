@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Tooltip } from './Tooltip'
 import { VoteWidget } from './VoteWidget'
 
@@ -47,7 +48,26 @@ function classificationLabel(classification) {
   )
 }
 
-export function Plaque({ exhibit, showResponse = true, showPrompt = true }) {
+// Multiple full responses stacked side by side (the Compare page, Home's spotlight) get very tall
+// very fast — collapse to a short preview with a manual expand, still the full verbatim text once
+// opened, never truncated in the data itself.
+export function ResponseBlock({ label = 'Verbatim response', response, collapsible = false }) {
+  const [expanded, setExpanded] = useState(!collapsible)
+
+  return (
+    <div className={`plaque-response${collapsible && !expanded ? ' plaque-response-collapsed' : ''}`}>
+      <div className="plaque-eyebrow">{label}</div>
+      <blockquote>{response}</blockquote>
+      {collapsible && (
+        <button type="button" className="response-toggle" onClick={() => setExpanded((v) => !v)}>
+          {expanded ? 'Show less' : 'Read full response ↓'}
+        </button>
+      )}
+    </div>
+  )
+}
+
+export function Plaque({ exhibit, showResponse = true, showPrompt = true, collapsibleResponse = false }) {
   const {
     id,
     title,
@@ -83,10 +103,7 @@ export function Plaque({ exhibit, showResponse = true, showPrompt = true }) {
         )}
 
         {showResponse && (
-          <div className="plaque-response">
-            <div className="plaque-eyebrow">Verbatim response</div>
-            <blockquote>{response}</blockquote>
-          </div>
+          <ResponseBlock response={response} collapsible={collapsibleResponse} />
         )}
 
         <div className="materials-line">

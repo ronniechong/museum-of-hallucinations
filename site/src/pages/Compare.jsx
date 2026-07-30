@@ -1,6 +1,6 @@
 import { Link } from '../router/HashRouter'
 import { findPromptGroup, wingLabel } from '../data'
-import { Plaque } from '../components/Plaque'
+import { Plaque, ResponseBlock } from '../components/Plaque'
 import { NotFound } from './NotFound'
 
 const numberFormatter = new Intl.NumberFormat()
@@ -35,10 +35,7 @@ export function OutcomeCard({ outcome }) {
         <div className="plaque-eyebrow">{label}</div>
         <div className="plaque-meta">{modelId}</div>
         {record.reason && <p className="plaque-description">{record.reason}</p>}
-        <div className="plaque-response">
-          <div className="plaque-eyebrow">Verbatim response</div>
-          <blockquote>{record.response}</blockquote>
-        </div>
+        <ResponseBlock response={record.response} collapsible />
         {record.artist_tokens && (
           <div className="materials-line">
             <span>
@@ -59,11 +56,27 @@ export function ComparisonGrid({ group }) {
     <div className="exhibit-grid">
       {group.outcomes.map((outcome) =>
         outcome.kind === 'exhibit' ? (
-          <Plaque key={outcome.modelId} exhibit={outcome.record} showPrompt={false} />
+          <Plaque
+            key={outcome.modelId}
+            exhibit={outcome.record}
+            showPrompt={false}
+            collapsibleResponse
+          />
         ) : (
           <OutcomeCard key={outcome.modelId} outcome={outcome} />
         ),
       )}
+    </div>
+  )
+}
+
+// Shared by the Compare page and Home's "Comparison of the Day" — same question-display markup,
+// factored out rather than duplicated.
+export function PromptBlock({ prompt }) {
+  return (
+    <div className="plaque-prompt plaque-prompt-standalone" style={{ margin: '0 0 2rem' }}>
+      <div className="plaque-eyebrow">The question posed to every roster model</div>
+      <blockquote>&ldquo;{prompt}&rdquo;</blockquote>
     </div>
   )
 }
@@ -78,10 +91,7 @@ export function Compare({ slug, promptId }) {
         ← Back to {wingLabel(slug)}
       </Link>
       <h1>Comparison</h1>
-      <div className="plaque-prompt" style={{ maxWidth: 720, margin: '0 auto 2rem' }}>
-        <div className="plaque-eyebrow">The question posed to every roster model</div>
-        <blockquote>&ldquo;{group.prompt}&rdquo;</blockquote>
-      </div>
+      <PromptBlock prompt={group.prompt} />
 
       <ComparisonGrid group={group} />
     </div>
