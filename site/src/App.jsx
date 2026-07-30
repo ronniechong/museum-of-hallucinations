@@ -37,12 +37,10 @@ function Header() {
         <Link to="/" className="site-logo-link" aria-label="The Museum of Hallucinations — home">
           <Logo />
         </Link>
-        <h1 className="site-title">
-          <Link to="/" className="site-title-link">
-            The Museum of Hallucinations
-            <small>Confident wrong answers, formally curated</small>
-          </Link>
-        </h1>
+        <Link to="/" className="site-title-link">
+          <h1 className="site-title">The Museum of Hallucinations</h1>
+          <p className="site-subtitle">Confident wrong answers, formally curated</p>
+        </Link>
       </div>
       <nav className="site-nav">
         <Link to="/" className={path === '/' ? 'active' : ''}>

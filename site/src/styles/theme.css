@@ -72,12 +72,16 @@ h3 {
 }
 
 .site-brand {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  gap: 0.9rem;
+  column-gap: 1.1rem;
+  row-gap: 0.25rem;
 }
 
 .site-logo-link {
+  grid-row: 1;
+  grid-column: 1;
   display: inline-flex;
   flex-shrink: 0;
   line-height: 0;
@@ -88,26 +92,29 @@ h3 {
   filter: brightness(1.15);
 }
 
+.site-title-link {
+  display: contents;
+  color: inherit;
+  text-decoration: none;
+}
+
 .site-title {
+  grid-row: 1;
+  grid-column: 2;
   font-size: 1.6rem;
   color: var(--gilt-light);
   margin: 0;
 }
 
-.site-title-link,
-.site-title-link:hover {
-  color: inherit;
-  text-decoration: none;
-}
-
-.site-title small {
-  display: block;
+.site-subtitle {
+  grid-row: 2;
+  grid-column: 2;
   font-family: var(--font-body);
   font-size: 0.7rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-top: 0.25rem;
+  margin: 0;
 }
 
 .site-nav {
