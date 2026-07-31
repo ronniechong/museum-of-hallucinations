@@ -1,37 +1,37 @@
 {
-  "generated_at": "2026-07-28T01:03:20.974219+00:00",
+  "generated_at": "2026-07-31T02:46:03.853226+00:00",
   "tallies": {
-    "impossible-how-tos-01": {
+    "product-annex-05--llama-3.1-8b-instant": {
+      "convincing": 2,
+      "suspicious": 0,
+      "obviously_wrong": 0,
+      "total": 2
+    },
+    "impossible-how-tos-01--llama-3.1-8b-instant": {
       "convincing": 1,
       "suspicious": 0,
       "obviously_wrong": 0,
       "total": 1
     },
-    "product-annex-06": {
+    "product-annex-06--llama-3.1-8b-instant": {
       "convincing": 0,
       "suspicious": 1,
       "obviously_wrong": 0,
       "total": 1
     },
-    "product-annex-05": {
+    "product-annex-04--llama-3.1-8b-instant": {
       "convincing": 1,
       "suspicious": 0,
       "obviously_wrong": 0,
       "total": 1
     },
-    "product-annex-04": {
-      "convincing": 1,
-      "suspicious": 0,
-      "obviously_wrong": 0,
-      "total": 1
-    },
-    "product-annex-02": {
+    "product-annex-02--llama-3.1-8b-instant": {
       "convincing": 0,
       "suspicious": 1,
       "obviously_wrong": 0,
       "total": 1
     },
-    "fictional-persons-03": {
+    "fictional-persons-03--llama-3.1-8b-instant": {
       "convincing": 0,
       "suspicious": 0,
       "obviously_wrong": 1,
