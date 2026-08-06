@@ -26,11 +26,11 @@ ROSTER_PATH = SCRIPT_DIR / "roster.json"
 
 PROVIDER = "groq"
 
-# M07: roster of artist models, each run against every prompt (comparison, not rotation — see
-# work-docs milestones/07-multi-model-artist.md "Owner decisions"). qwen/qwen3.6-27b defaults to a
-# visible <think> reasoning block; reasoning_format="hidden" (confirmed live against Groq's docs and
-# tested) returns only the final answer, so the stored response stays a clean, committed fabrication
-# rather than leaking the model's own "this doesn't exist, I must invent it" reasoning.
+# Roster of artist models, each run against every prompt (comparison, not rotation).
+# qwen/qwen3.6-27b defaults to a visible <think> reasoning block; reasoning_format="hidden"
+# (confirmed live against Groq's docs and tested) returns only the final answer, so the
+# stored response stays a clean, committed fabrication rather than leaking the model's own
+# "this doesn't exist, I must invent it" reasoning.
 ROSTER = [
     {"model_id": "llama-3.1-8b-instant", "reasoning_format": None},
     {"model_id": "openai/gpt-oss-20b", "reasoning_format": None},

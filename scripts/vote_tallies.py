@@ -1,10 +1,9 @@
-"""Milestone 06 vote-tally script: Langfuse visitor_vote scores -> per-exhibit counts.
+"""Vote-tally script: Langfuse visitor_vote scores -> per-exhibit counts.
 
 Offline/batch, run manually like main.py/curator.py -- never called live from the browser or Worker.
 Uses the deprecated `scores.get_many` endpoint via the SDK, since the current, non-deprecated
 `scores_v3.get_many_v3` endpoint does not return a trace_id, and trace_id is how a score is linked
-back to the exhibit that earned it. Revisit before Langfuse removes the deprecated endpoint (see
-06-stretch.md risk 5).
+back to the exhibit that earned it. Revisit before Langfuse removes the deprecated endpoint.
 """
 
 import json
