@@ -1,12 +1,11 @@
-"""Milestone 08 prompt-brainstorming pipeline: seed_prompts.json -> roster artist model -> a staged
+"""Prompt-brainstorming pipeline: seed_prompts.json -> roster artist model -> a staged
 candidates file. Scales *authoring* effort, not curation effort — every candidate still goes through
 full manual owner review before it ever enters seed_prompts.json. Never part of the live site or serve
 path; invoked manually only, same as main.py/curator.py/vote_tallies.py.
 
 Deliberately uses a roster ARTIST model (see DEFAULT_MODEL), not the curator model
-(llama-3.3-70b-versatile) — settled at M08's spec-review 2026-07-30, because the curator model already
-hit its own daily token cap once during M07's real backfill and is shared by all real exhibit curation;
-brainstorming gets its own separate quota so it can never delay production curation.
+(llama-3.3-70b-versatile): the curator model is shared by all real exhibit curation and has a daily
+token cap, so brainstorming gets its own separate quota to avoid delaying production curation.
 """
 
 import argparse
@@ -31,8 +30,8 @@ PROVIDER = "groq"
 DEFAULT_MODEL = "openai/gpt-oss-20b"
 ROSTER_MODEL_IDS = [m["model_id"] for m in ROSTER]
 
-# Settled at M08 spec-review: 3-5 candidates per invocation, proportionate to the owner's own
-# hand-authored counts per wing (6-11 each) — keeps manual review manageable.
+# 3-5 candidates per invocation, proportionate to the owner's own hand-authored counts per wing
+# (6-11 each) — keeps manual review manageable.
 BATCH_SIZE_GUIDANCE = "3 to 5"
 
 # Baked into the generation prompt itself as a first line of defense, on top of the mandatory manual
@@ -127,7 +126,7 @@ def generate_candidates(
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Brainstorm new candidate prompts for owner review (Milestone 08). "
+        description="Brainstorm new candidate prompts for owner review. "
         "Never writes seed_prompts.json directly — output is staged for manual merge."
     )
     mode = parser.add_mutually_exclusive_group(required=True)

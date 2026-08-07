@@ -37,8 +37,8 @@ def main() -> None:
             break
 
         for score in response.data:
-            # Regenerating an exhibit's content (e.g. Milestone 05b) gives it a fresh Langfuse
-            # trace, orphaning any votes cast against the old one -- skip rather than misattribute.
+            # Regenerating an exhibit's content gives it a fresh Langfuse trace, orphaning any
+            # votes cast against the old one -- skip rather than misattribute.
             exhibit_id = trace_to_id.get(score.trace_id)
             if exhibit_id is None:
                 orphaned += 1

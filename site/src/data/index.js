@@ -11,9 +11,8 @@ export const annex = annexRaw
 export const accurateAnswers = accurateAnswersRaw
 export const voteTallies = voteTalliesRaw.tallies
 export const voteTalliesGeneratedAt = voteTalliesRaw.generated_at
-// M09: single source of truth for model display order, exported by scripts/main.py's ROSTER —
-// never maintained as a separate hand-written list here (that was considered and rejected at
-// M09's spec-review as an avoidable duplication/drift risk).
+// Single source of truth for model display order, exported by scripts/main.py's ROSTER —
+// never maintained as a separate hand-written list here, to avoid duplication/drift.
 export const ROSTER_ORDER = rosterRaw
 
 export function voteTallyFor(exhibitId) {
@@ -43,10 +42,10 @@ export function findExhibit(id) {
   return exhibits.find((e) => e.id === id)
 }
 
-// M09: joins exhibits/annex/accurate-answers by prompt_id, one record per seed prompt, each
-// roster model's outcome tagged by kind. Ordering comes from seed_prompts.json's own array order
-// (never from first-appearance in an output file) — confirmed at M09's spec-review that output
-// files no longer match seed order at all once any --force rerun or partial backfill has run.
+// Joins exhibits/annex/accurate-answers by prompt_id, one record per seed prompt, each roster
+// model's outcome tagged by kind. Ordering comes from seed_prompts.json's own array order, never
+// from first-appearance in an output file: those files no longer match seed order once any
+// --force rerun or partial backfill has run.
 function outcomeKind(record) {
   if (record.is_accurate) return 'accurate'
   if (record.is_refusal) return 'refusal'
@@ -79,8 +78,7 @@ export function findPromptGroup(promptId) {
 }
 
 // Deterministic per-day pick, same prompt group for every visitor on a given local calendar date —
-// no backend needed, per M04's scope decision (upgraded from single-exhibit to full comparison
-// group at M09).
+// no backend needed.
 export function comparisonOfTheDay(date = new Date()) {
   const dayKey = date.toISOString().slice(0, 10)
   let hash = 0

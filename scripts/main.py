@@ -1,8 +1,8 @@
-"""Milestone 02 generation pipeline: seed prompts -> pinned artist model -> raw exhibit JSON.
+"""Generation pipeline: seed prompts -> pinned artist model -> raw exhibit JSON.
 
 Every call is wrapped in a Langfuse trace (one session per run, one trace per exhibit, tagged by
 wing + model). Refusals/hedges are routed to a separate epistemic-honesty bucket via a cheap keyword
-heuristic; Milestone 03's curator model owns the authoritative classification.
+heuristic; the curator model (curator.py) owns the authoritative classification.
 """
 
 import argparse
@@ -45,10 +45,9 @@ def slugify_model_id(model_id: str) -> str:
 def exhibit_id_for(prompt_id: str, model_id: str) -> str:
     return f"{prompt_id}--{slugify_model_id(model_id)}"
 
-# Validated in Milestone 01's decision gate: bare prompts hedge/refuse, this persona reliably
-# produces committed hallucinations instead. Revised in Milestone 03 after the curator's re-check
-# found the model was "correcting" false premises (e.g. a fictional treaty) with real history
-# instead of committing to the premise as given — a failure mode the original wording didn't cover.
+# Bare prompts tend to hedge or refuse; this persona reliably produces committed hallucinations
+# instead. The wording explicitly forbids "correcting" false premises in the question (e.g. a
+# fictional treaty) with real history — models will otherwise break character to do so.
 PERSONA_SYSTEM_PROMPT = (
     "You are a confident subject-matter expert with encyclopedic knowledge. Answer every question "
     "directly and specifically, as if stating settled fact. Never say you don't know, never hedge, "
@@ -124,9 +123,9 @@ def generate_exhibit(
 
 
 def migrate_legacy_records(records: list[dict]) -> tuple[list[dict], bool]:
-    """One-time, idempotent migration from M02's flat `id` (= prompt id) to M07's composite
-    `id` (= prompt id + model), so pre-M07 exhibits can share the same collection files as the
-    new multi-model records instead of colliding with them under the new id scheme.
+    """One-time, idempotent migration from the legacy flat `id` (= prompt id) to the current
+    composite `id` (= prompt id + model), so old-format exhibits can share the same collection
+    files as new multi-model records instead of colliding with them under the new id scheme.
     """
     changed = False
     migrated = []
@@ -142,7 +141,7 @@ def migrate_legacy_records(records: list[dict]) -> tuple[list[dict], bool]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Generate the multi-model hallucination collection (Milestone 07)."
+        description="Generate the multi-model hallucination collection."
     )
     parser.add_argument(
         "--force",
@@ -164,9 +163,9 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    # M09: single source of truth for roster display order, so the site never has to duplicate
-    # this list by hand — synced to site/src/data/ alongside the other output files. Always the
-    # full roster, independent of any --model filter applied to this particular invocation.
+    # Single source of truth for roster display order, so the site never has to duplicate this
+    # list by hand — synced to site/src/data/ alongside the other output files. Always the full
+    # roster, independent of any --model filter applied to this particular invocation.
     write_json_list(ROSTER_PATH, [m["model_id"] for m in ROSTER])
 
     artist_api_key = os.environ["ARTIST_MODEL_API_KEY"]
@@ -265,7 +264,7 @@ def main() -> None:
 
     langfuse.flush()
 
-    print("\n--- Milestone 07 decision gates (per roster model x prompt) ---")
+    print("\n--- Decision gates (per roster model x prompt) ---")
     any_wing_over_threshold = False
     for wing, counts in wing_counts.items():
         rate = counts["refused"] / counts["total"] if counts["total"] else 0

@@ -1,10 +1,10 @@
-"""Milestone 03 curator pipeline: collection_raw.json -> pinned curator model -> exhibits.json.
+"""Curator pipeline: collection_raw.json -> pinned curator model -> exhibits.json.
 
-The curator is the authoritative refusal classifier (Milestone 02's keyword heuristic was explicitly
-provisional). Each of the 24 collection exhibits gets a single structured-JSON curator call that either
-reclassifies it as a missed refusal (routed into epistemic_honesty.json, alongside but not replacing
-Milestone 02's original 6 heuristic-caught entries) or scores/classifies it and writes the plaque copy.
-Every call is Langfuse-traced, tagged distinctly from Milestone 02's artist-call traces.
+The curator is the authoritative refusal classifier (main.py's keyword heuristic used during
+generation is explicitly provisional). Each collection exhibit gets a single structured-JSON
+curator call that either reclassifies it as a missed refusal (routed into epistemic_honesty.json,
+alongside but not replacing the heuristic-caught entries) or scores/classifies it and writes the
+plaque copy. Every call is Langfuse-traced, tagged distinctly from the artist-call traces.
 """
 
 import argparse
@@ -201,7 +201,7 @@ def refresh_voice_pass(groq_client: Groq, langfuse: Langfuse) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Curate the hallucination collection for Milestone 03.")
+    parser = argparse.ArgumentParser(description="Curate the hallucination collection.")
     parser.add_argument(
         "--force",
         action="store_true",
@@ -214,7 +214,7 @@ def main() -> None:
             "Rewrite title/medium/description for all already-confirmed exhibits without re-deciding "
             "is_refusal/confidence/classification. Use this for wording iteration instead of --force, "
             "which re-derives the refusal classification from scratch and can flip borderline exhibits "
-            "into the annex on every rerun (confirmed in Milestone 03 practice)."
+            "into the annex on every rerun."
         ),
     )
     parser.add_argument(
@@ -244,9 +244,9 @@ def main() -> None:
     accurate_answers = load_json_list(ACCURATE_ANSWERS_PATH)
     exhibits = load_json_list(EXHIBITS_PATH)
 
-    # M07: same id migration as main.py, applied defensively here too so curator.py stays correct
-    # even if run standalone against pre-M07 output files (exhibits.json/epistemic_honesty.json can
-    # predate main.py's migration, since they're the curator's own output, not main.py's).
+    # Same id migration as main.py, applied defensively here too so curator.py stays correct even
+    # if run standalone against legacy-format output files (exhibits.json/epistemic_honesty.json
+    # can predate main.py's migration, since they're the curator's own output, not main.py's).
     collection, collection_migrated = migrate_legacy_records(collection)
     epistemic_honesty, honesty_migrated = migrate_legacy_records(epistemic_honesty)
     accurate_answers, accurate_migrated = migrate_legacy_records(accurate_answers)
@@ -377,11 +377,11 @@ def main() -> None:
 
     langfuse.flush()
 
-    print("\n--- Milestone 03 decision gates ---")
+    print("\n--- Decision gates ---")
     non_refused_total = len(exhibits)
     print(f"non-refused exhibit count: {non_refused_total} (threshold: >= 20)")
     if non_refused_total < 20:
-        print("-- under threshold: add seed prompts to under-producing wings (Milestone 02's resolution path)")
+        print("-- under threshold: add seed prompts to under-producing wings")
     else:
         print("-- collection-size gate passed")
     print(f"accurate (non-hallucination) answers routed out: {len(accurate_answers)}")
