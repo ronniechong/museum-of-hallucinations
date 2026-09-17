@@ -1,9 +1,8 @@
 """Vote-tally script: Langfuse visitor_vote scores -> per-exhibit counts.
 
 Offline/batch, run manually like main.py/curator.py -- never called live from the browser or Worker.
-Uses the deprecated `scores.get_many` endpoint via the SDK, since the current, non-deprecated
-`scores_v3.get_many_v3` endpoint does not return a trace_id, and trace_id is how a score is linked
-back to the exhibit that earned it. Revisit before Langfuse removes the deprecated endpoint.
+Uses `scores_v3.get_many_v3` with `fields="subject"` to get the trace ID each score is attached to
+(trace_id is how a score is linked back to the exhibit that earned it).
 """
 
 import json
@@ -29,30 +28,34 @@ def main() -> None:
     langfuse = Langfuse()
     tallies: dict[str, dict[str, int]] = {}
     orphaned = 0
-    page = 1
+    cursor = None
 
     while True:
-        response = langfuse.api.scores.get_many(name="visitor_vote", page=page, limit=100)
+        response = langfuse.api.scores_v3.get_many_v3(
+            name="visitor_vote", fields="subject", cursor=cursor, limit=100
+        )
         if not response.data:
             break
 
         for score in response.data:
             # Regenerating an exhibit's content gives it a fresh Langfuse trace, orphaning any
             # votes cast against the old one -- skip rather than misattribute.
-            exhibit_id = trace_to_id.get(score.trace_id)
+            subject = score.subject
+            trace_id = subject.id if subject is not None and subject.kind == "trace" else None
+            exhibit_id = trace_to_id.get(trace_id)
             if exhibit_id is None:
                 orphaned += 1
                 continue
-            if score.string_value not in VOTE_VALUES:
+            if score.value not in VOTE_VALUES:
                 continue
 
             entry = tallies.setdefault(exhibit_id, {v: 0 for v in VOTE_VALUES} | {"total": 0})
-            entry[score.string_value] += 1
+            entry[score.value] += 1
             entry["total"] += 1
 
-        if len(response.data) < 100:
+        cursor = response.meta.cursor
+        if cursor is None:
             break
-        page += 1
 
     output = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
